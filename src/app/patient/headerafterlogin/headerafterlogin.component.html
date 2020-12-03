@@ -1,0 +1,74 @@
+<header class="header_sticky">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-6">
+        <div id="logo">
+          <a routerLink="/" title="Findoctor">
+            <img src="/assets/img/logo.png" data-retina="true" alt="" width="163" height="36">
+          </a>
+        </div>
+      </div>
+      <nav class="col-lg-9 col-6">
+        <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="#0">
+          <span>Menu mobile</span>
+        </a>
+        <ul id="top_access">
+          <li id="user" class="submenu">
+            <a routerLink="/patient/profile">
+              <figure>
+                <img *ngIf="!profilePicPath || profilePicPath =='null'|| profilePicPath ==null" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaio77_lSjjRsEQNoeSphgSURXg6Tde1rgJi1frZR2cAyHGoPq"
+                  class="rounded-circle" />
+                <img *ngIf="profilePicPath!='null'" src="{{profilePicPath}}" alt="">
+              </figure>
+              {{firstName}}&nbsp;{{lastName}}
+            </a>
+          </li>
+        </ul>
+        <div class="main-menu">
+          <ul>
+            <li>
+              <a routerLink="/patient/dashboard">Dashboard </a>
+            </li>
+            <li class="submenu">
+              <a routerLink="/appointments" class="show-submenu">Appointments
+                <i class="icon-down-open-mini"></i>
+              </a>
+              <ul>
+                <li>
+                  <a routerLink="/appointments">Upcoming Appointments</a>
+                </li>
+                <li>
+                  <a routerLink="/appointments">Previous Appointments</a>
+                </li>
+
+              </ul>
+            </li>
+            <li>
+              <a routerLink="/patient/chat">Chat</a>
+            </li>
+
+
+            <li>
+              <a routerLink="/patient/documents">Documents </a>
+            </li>
+            <li>
+              <a routerLink="/patient/coupon">Coupon</a>
+            </li>
+            <li>
+              <a routerLink="/patient/settings">Settings</a>
+            </li>
+            <li>
+              <a href="javascript:void(0);" (click)="logout()" class="mega-menu" data-close="true">
+                Logout
+              </a>
+            </li>
+
+
+          </ul>
+        </div>
+        <!-- /main-menu -->
+      </nav>
+    </div>
+  </div>
+  <!-- container -->
+</header>

@@ -1,0 +1,311 @@
+<toaster-container [toasterconfig]="config"></toaster-container>
+
+<div class="layer">
+
+
+
+</div>
+<!-- Mobile menu overlay mask -->
+
+<div id="preloader" *ngIf="loading">
+  <div data-loader="circle-side"></div>
+</div>
+<!-- End Preload -->
+
+<app-header *ngIf="!isloggedin"></app-header>
+<app-headerafterlogin *ngIf="isloggedin"></app-headerafterlogin>
+<!-- /header -->
+<main>
+  <div id="breadcrumb">
+    <div class="container">
+      <ul>
+        <li>
+          <a routerLink="/">Home</a>
+        </li>
+        <li>
+          <a routerLink="/dashboard">Dashboard</a>
+        </li>
+
+        <li>Documents</li>
+      </ul>
+    </div>
+  </div>
+  <!-- /breadcrumb -->
+
+  <div class="container margin_60">
+    <div class="row">
+
+      <!-- /asdide -->
+
+      <div class="tabs_styled_2">
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="book-tab" data-toggle="tab" href="#book" role="tab" aria-controls="book">Add Document</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="general-tab" data-toggle="tab" href="#general" role="tab" aria-controls="general" aria-expanded="true">View Document</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" id="share-all" data-toggle="tab" href="#shareall" role="tab" aria-controls="general" aria-expanded="true">Share All Document</a>
+          </li>
+        </ul>
+        <!--/nav-tabs -->
+        <div class="tab-content">
+
+          <div class="tab-pane fade show active" id="book" role="tabpanel" aria-labelledby="book-tab">
+            <div class="message">
+              <p>Add Documents </p>
+            </div>
+
+            <div class="">
+              <div class="row">
+                <div class="col-md-6 col-sm-6">
+                  <div class="form-group">
+                    <label>Documents Title</label>
+                    <input type="text" [(ngModel)]="title" placeholder="Documents Title" class="form-control" id="firstname_booking" name="firstname_booking">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Documents Type</label>
+                    <select class="form-control show-tick" [(ngModel)]="documentType">
+                      <option value="">Documents Type</option>
+                      <option value="Report">Report</option>
+                      <option value="Letter">Letter</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Status</label>
+                    <select class="form-control show-tick" [(ngModel)]="documentStatus">
+                      <option value="">Status</option>
+                      <option value="Active">Active</option>
+                      <option value="InActive">Inactive</option>
+                    </select>
+                  </div>
+                </div>
+
+
+
+
+                <div class="col-md-6">
+
+                  <div class="form-group">
+
+                    <label>Add your Document</label>
+                    <div class="fileupload">
+                      <button (click)="uploadDocument()"> Upload Document</button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="form-group">
+                    <textarea [(ngModel)]="description" rows="5" id="" name="" class="form-control" style="height:100px;" placeholder="Description"></textarea>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+
+                    <input type="checkbox" [(ngModel)]="isPrivate" name="" id="">
+                    <label> Is Private:</label>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <!--End step -->
+
+            <a (click)="saveDocument()" class="btn_1">Submit</a>
+
+
+
+
+          </div>
+
+
+
+          <!-- /box_general -->
+
+          <!-- /tab_1 -->
+
+          <div class="tab-pane fade" id="general" role="tabpanel" aria-labelledby="general-tab">
+
+
+            <div class="col-xl-12 col-lg-12" *ngIf="documents.length==0">No Documents</div>
+
+            <div class="col-xl-12 col-lg-12" *ngFor="let document of documents">
+
+
+              <div class="strip_list wow fadeIn">
+                <a (click)="shareUrl (document)" href="javascript:void();" data-toggle="modal" data-target="#share-document" class="share_bt"></a>
+                <figure class="text-center">
+                  <span class="pe-7s-note2 dashboard-icon"></span>
+                </figure>
+                <h3>{{document.title}}</h3>
+                <small>{{document.created_on | date}}</small>
+                <p>{{document.description}}</p>
+                <ul>
+                  <li>Type: {{document.docType}}</li>
+                  <li>Status: {{document.docStatus}}</li>
+                  <li>
+                    <input [(ngModel)]="document.isPrivate" type="checkbox" name="Private" value="Private">
+                    <label for="Private">Private</label>
+                  </li>
+                  <li>
+                    <a (click)="deleteDoc(document._id)" class="btn_listing">Delete</a>
+                  </li>
+                  <li>
+                    <a href="{{document.url}}" target="_blank">View</a>
+                  </li>
+                </ul>
+              </div>
+
+
+              <!-- /box_general -->
+
+
+              <!-- /tabs_styled -->
+            </div>
+
+          </div>
+          <!-- /tab_2 -->
+          <div class="tab-pane fade" id="shareall" role="tabpanel" aria-labelledby="shareall-tab">
+            <div class="col-xl-12 col-lg-12" *ngIf="documents.length==0">No Document to share</div>
+
+            <div class="col-xl-12 col-lg-12" *ngIf="documents.length>0">
+
+
+              <div class="strip_list wow fadeIn">
+                <a (click)="shareAllUrl ()" href="javascript:void();" data-toggle="modal" data-target="#share-all-document" class="share_bt"></a>
+                <figure class="text-center">
+                  <span class="pe-7s-note2 dashboard-icon"></span>
+                </figure>
+                <h3>share all documents</h3>
+
+              </div>
+
+
+              <!-- /box_general -->
+
+
+              <!-- /tabs_styled -->
+            </div>
+          </div>
+
+        </div>
+        <!-- /tab-content -->
+        <!-- /tabs_styled -->
+      </div>
+      <!-- /col -->
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</main>
+<!-- /main -->
+<!-- /main content -->
+
+
+<!-- Share with dr. Modal Start-->
+<!-- The Modal -->
+
+
+<!-- Share with dr. Modal Start-->
+<!-- The Modal -->
+
+<div class="modal fade " id="share-document" tabindex="-1 " role="dialog ">
+  <div class="modal-dialog modal-md " role="document ">
+    <div class="modal-content ">
+      <div class="modal-header ">
+        <h4 class="title " id="largeModalLabel ">Share Document with</h4>
+      </div>
+      <div class="modal-body ">
+        <div class="body ">
+          <div class="row clearfix ">
+            <div class="col-sm-12 ">
+              Search Doctor
+              <div class="form-group">
+                <select id="searchDoctor" class="browser-default  ">
+                </select>
+
+                <!-- <input type="text" id="searchDoctor" class="form-control" placeholder="Search by name"> -->
+              </div>
+
+              <div class="list-group">
+                <h5> Already shared With</h5>
+
+                <a *ngFor="let sharedWithDoctor of sharedWith " (click)="unshare(sharedWithDoctor._id)" href="javascript:void();" class="list-group-item list-group-item-action flex-column align-items-start">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1"> Dr. {{sharedWithDoctor.firstName}}</h5>
+
+                  </div>
+
+                  <small (click)="unshare(sharedWithDoctor._id)">Unshare</small>
+                </a>
+
+
+
+              </div>
+            </div>
+
+
+
+
+          </div>
+        </div>
+        <div class="modal-footer ">
+          <button type="button " class="btn btn-success waves-effect " (click)="share()">Share</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Share with dr. Modal End-->
+<div class="modal fade " id="share-all-document" tabindex="-1 " role="dialog ">
+  <div class="modal-dialog modal-md " role="document ">
+    <div class="modal-content ">
+      <div class="modal-header ">
+        <h4 class="title " id="largeModalLabelAll ">Share All Documents with</h4>
+      </div>
+      <div class="modal-body ">
+        <div class="body ">
+          <div class="row clearfix ">
+            <div class="col-sm-12 ">
+              Search Doctor
+              <div class="form-group">
+                <select id="searchDoctorforall" class="browser-default  ">
+                </select>
+
+                <!-- <input type="text" id="searchDoctor" class="form-control" placeholder="Search by name"> -->
+              </div>
+
+
+            </div>
+
+
+
+
+          </div>
+        </div>
+        <div class="modal-footer ">
+          <button type="button " class="btn btn-success waves-effect " (click)="shareAllDoc()">Share</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
+<!--/footer-->
+
+<div id="toTop"></div>
+<!-- Back to top button -->
+
+<!-- COMMON SCRIPTS -->

@@ -1,0 +1,37 @@
+stages:
+  - build
+  - deploy
+
+# master build
+masterbuild:
+  stage: build
+  image: node
+  only:
+    - master
+  script:
+    - apt update
+    - npm install -g @angular/cli
+    - npm install
+    - ng build --prod
+    - echo "BUILD SUCCESSFUL"
+  artifacts:
+    paths:
+      - dist/
+
+# dev deploy
+devdeploy:
+  stage: deploy
+  dependencies:
+    - masterbuild
+  before_script: 
+    - mkdir -p ~/.ssh     
+    - echo -e "$SERVER_SSH" > ~/.ssh/id_rsa     
+    - chmod 600 ~/.ssh/id_rsa     
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config' 
+             
+  script:
+    - scp -r dist/* ubuntu@$SERVER_IP:/home/ubuntu/ischedulenow-com
+  only:
+    - master
+      
+  

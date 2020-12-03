@@ -1,0 +1,92 @@
+<toaster-container [toasterconfig]="config"></toaster-container>
+
+<div class="layer">
+
+
+
+</div>
+<!-- Mobile menu overlay mask -->
+
+<div id="preloader" *ngIf="loading">
+  <div data-loader="circle-side"></div>
+</div>
+<!-- End Preload -->
+
+<app-header *ngIf="!isloggedin"></app-header>
+<app-headerafterlogin *ngIf="isloggedin"></app-headerafterlogin>
+<!-- /header -->
+
+<main>
+  <div id="breadcrumb">
+    <div class="container">
+      <ul>
+        <li>
+          <a routerLink="/">Home</a>
+        </li>
+        <li>
+          <a routerLink="/dashboard">Dashboard</a>
+        </li>
+        <li>
+          <a routerLink="/documents">Add Documents</a>
+        </li>
+
+        <li> View Documents</li>
+      </ul>
+    </div>
+  </div>
+  <!-- /breadcrumb -->
+
+  <div class="container margin_60">
+    <div class="row">
+
+      <!-- /asdide -->
+
+      <div class="col-xl-12 col-lg-12" *ngFor="let document of documents">
+
+
+        <div class="strip_list wow fadeIn">
+          <a (click)="shareUrl ('wa',document._id)" data-toggle="modal" data-target="#share-document" class="share_bt"></a>
+          <figure class="text-center">
+            <span class="pe-7s-note2 dashboard-icon"></span>
+          </figure>
+          <h3>{{document.title}}</h3>
+          <small>{{document.created_on | date}}</small>
+          <p>{{document.description}}</p>
+          <ul>
+            <li>Type: {{document.docType}}</li>
+            <li>Status: {{document.docStatus}}</li>
+            <li>
+              <input [(ngModel)]="document.isPrivate" type="checkbox" name="Private" value="Private">
+              <label for="Private">Private</label>
+            </li>
+            <li>
+              <a (click)="deleteDoc(document._id)" class="btn_listing">Delete</a>
+            </li>
+            <li>
+              <a href="{{document.url}}" target="_blank">View</a>
+            </li>
+          </ul>
+        </div>
+
+
+        <!-- /box_general -->
+
+
+        <!-- /tabs_styled -->
+      </div>
+      <!-- /col -->
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</main>
+<!-- /main -->
+<!-- /main content -->
+
+<app-footer></app-footer>
+<!--/footer-->
+
+<div id="toTop"></div>
+<!-- Back to top button -->
+
+<!-- COMMON SCRIPTS -->

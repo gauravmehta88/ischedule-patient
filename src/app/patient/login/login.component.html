@@ -1,0 +1,82 @@
+<toaster-container [toasterconfig]="config"></toaster-container>
+
+<div class="layer">
+
+
+
+</div>
+<!-- Mobile menu overlay mask -->
+
+<div id="preloader" *ngIf="loading">
+  <div data-loader="circle-side"></div>
+</div>
+<!-- End Preload -->
+
+<app-header></app-header>
+<!-- /header -->
+
+<main>
+  <div class="bg_color_2">
+    <div class="container margin_60_35">
+      <div id="login-2">
+        <h1>Login</h1>
+        <form class="form" [formGroup]="LoginForm">
+          <div class="box_form clearfix">
+            <div class="box_login text-center"><br><br>
+<img  class="img-fluid" data-retina="true" height="36" src="assets/img/logo.png" width="200">
+<br><br>
+              <!--<a href="javascript:void();">Dummy text here</a>
+              <a href="javascript:void();">Dummy text here</a>
+              <a href="javascript:void();">Dummy text here</a>-->
+
+            </div>
+            <div class="box_login last">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Enter Email/ Mobile No." (keyup)="makeLowerCase()" formControlName="username"
+                />
+
+              </div>
+              <div class="error" *ngIf="
+                (!userNamevalidation ||
+                  LoginForm.controls.username.dirty ||
+                  LoginForm.controls.username.touched) &&
+                !LoginForm.controls.username.valid
+              ">
+                *Required
+              </div>
+              <div class="form-group">
+                <input type="password" placeholder="*******" class="form-control" formControlName="password" />
+
+                <a routerLink="/patient/forgotPassword" class="forgot">
+                  <small>Forgot password?</small>
+                </a>
+              </div>
+              <div class="error" *ngIf="
+                !passwordvalidation && !LoginForm.controls.password.valid
+              ">
+                * password required
+              </div>
+              <div class="form-group">
+                <input class="btn_1" (click)="signIn()" type="button" value="Login">
+              </div>
+            </div>
+          </div>
+        </form>
+        <p class="text-center link_bright">Do not have an account yet?
+          <a routerLink="/patient/register">
+            <strong>Register now!</strong>
+          </a>
+        </p>
+      </div>
+      <!-- /login -->
+    </div>
+  </div>
+</main>
+
+<app-footer></app-footer>
+<!--/footer-->
+
+<div id="toTop"></div>
+<!-- Back to top button -->
+
+<!-- COMMON SCRIPTS -->

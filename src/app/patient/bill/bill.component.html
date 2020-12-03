@@ -1,0 +1,259 @@
+<toaster-container [toasterconfig]="config"></toaster-container>
+
+<div class="layer">
+
+
+
+</div>
+<!-- Mobile menu overlay mask -->
+
+<div id="preloader" *ngIf="loading">
+    <div data-loader="circle-side"></div>
+</div>
+<!-- End Preload -->
+
+<app-header *ngIf="!isloggedin"></app-header>
+<app-headerafterlogin *ngIf="isloggedin"></app-headerafterlogin>
+<!-- /header -->
+
+<main>
+    <div id="breadcrumb">
+        <div class="container">
+            <ul>
+                <li>
+                    <a routerLink="/">Home</a>
+                </li>
+                <li>
+                    <a routerLink="/dashboard">Dashboard</a>
+                </li>
+                <li>Billing</li>
+            </ul>
+        </div>
+    </div>
+    <!-- /breadcrumb -->
+
+    <div class="container margin_60">
+
+        <div class="row">
+
+
+
+            <div class="tabs_styled_2">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="pending-bill" data-toggle="tab" href="#pending" role="tab" aria-controls="book">Pending Bills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="paid-bills" data-toggle="tab" href="#paid" role="tab" aria-controls="paid" aria-expanded="true">Paid Bills</a>
+                    </li>
+
+                </ul>
+                <!--/nav-tabs -->
+
+                <div class="tab-content">
+
+
+
+
+                    <div class="tab-pane fade show active" id="pending" role="tabpanel" aria-labelledby="pending-bill">
+                        <div *ngIf="pending.length==0">No data</div>
+
+                        <div class="table-responsive" *ngIf="pending.length>0">
+                            <table class="table table-striped" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Appointment ID</th>
+                                        <th>Date</th>
+                                        <th>Status </th>
+                                        <th>Amount </th>
+                                        <th>View</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let inv of pending">
+
+                                        <td>{{inv._id}}</td>
+                                        <td>{{inv.created_on | date}}</td>
+                                        <td>
+                                            <span class="badge badge-default">{{inv.status}}</span>
+                                        </td>
+                                        <td>{{inv.total}}</td>
+                                        <td>
+                                            <a data-toggle="modal" data-target="#view-invoice" (click)="viewInvoice(inv)" class="btn btn btn-primary btn-simple waves-effect btn-sm">View Invoice</a>
+
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+
+                    <!-- /tab_1 -->
+
+                    <div class="tab-pane fade" id="paid" role="tabpanel" aria-labelledby="paid-bills">
+
+
+                        <div *ngIf="generated.length==0">No data</div>
+
+
+
+                        <div class="table-responsive" *ngIf="generated.length>0">
+                            <table class="table table-striped" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Appointment ID</th>
+                                        <th>Date</th>
+                                        <th>Status </th>
+                                        <th>Amount </th>
+                                        <th>View</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr *ngFor="let inv of generated">
+
+                                        <td>{{inv._id}}</td>
+                                        <td>{{inv.created_on | date}}</td>
+                                        <td>
+                                            <span class="badge badge-default">{{inv.status}}</span>
+                                        </td>
+                                        <td>{{inv.total}}</td>
+                                        <td>
+                                            <a data-toggle="modal" data-target="#view-invoice" (click)="viewInvoice(inv)" class="btn btn btn-primary btn-simple waves-effect btn-sm">View Invoice</a>
+
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
+
+                    </div>
+                    <!-- /tab_2 -->
+
+
+                </div>
+                <!-- /tab-content -->
+            </div>
+
+
+            <!-- /asdide -->
+
+
+            <!-- /col -->
+        </div>
+        <!-- /row -->
+
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</main>
+<!-- /main -->
+
+<!-- Share with dr. Modal Start-->
+<!-- The Modal -->
+
+<!-- View-invoice Start -->
+<div class="modal fade" id="view-invoice" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="title" id="largeModalLabel">View Invoice</h4>
+            </div>
+            <div class="modal-body">
+
+
+
+                <div class="pt20">
+                    <div class="row">
+                        <div class="col-sm-2">Cost : ${{getInvoiceCost(invoiceDetail)}}</div>
+                        <div class="col-sm-3"> Date : {{invoiceDetail.dueDate | date}}</div>
+                        <div class="col-sm-2">
+                            <span class="badge bg-orange">{{invoiceDetail.status}}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-6 col-sm-6 text-right">
+                            <p class="m-b-0">
+                                <strong>Order Date: </strong> {{invoiceDetail.dueDate | date}}</p>
+                            <p class="m-b-0">
+                                <strong>Order Status: </strong>
+                                <span class="badge bg-orange">{{invoiceDetail.status}}</span>
+                            </p>
+                            <p>
+                        </div>
+                    </div>
+                    <div class="mt-40"></div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Description</th>
+
+                                            <th>Cost</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let billItem of invoiceDetail.billItems;let i=index;">
+                                            <td>{{(i+1)}}</td>
+                                            <td> {{billItem.description}}
+                                            </td>
+                                            <td>${{billItem.cost}}</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Note</h5>
+                            <p>{{invoiceDetail.notes}}</p>
+                        </div>
+
+                        <div class="col-md-6 text-right">
+                            <p>
+                                <b>Sub-total:</b> ${{getInvoiceSubTotal(invoiceDetail)}}</p>
+                            <p>Discount: {{invoiceDetail.discount}}%</p>
+                            <p>VAT: {{invoiceDetail.tax}}%</p>
+                        </div>
+                    </div>
+                    <hr>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-round waves-effect">Submit </button>
+                <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">CLOSE</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- View-invoice end -->
+
+<!-- Share with dr. Modal Start-->
+<!-- The Modal -->
+
+
+<app-footer></app-footer>
+<!--/footer-->
+
+<div id="toTop"></div>
+<!-- Back to top button -->
+
+<!-- COMMON SCRIPTS -->

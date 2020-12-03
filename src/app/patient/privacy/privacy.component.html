@@ -1,0 +1,964 @@
+<toaster-container [toasterconfig]="config"></toaster-container>
+
+<div class="layer">
+
+
+
+</div>
+<!-- Mobile menu overlay mask -->
+
+<div id="preloader" *ngIf="loading">
+  <div data-loader="circle-side"></div>
+</div>
+<!-- End Preload -->
+
+<app-header *ngIf="!isloggedin"></app-header>
+<app-headerafterlogin *ngIf="isloggedin"></app-headerafterlogin>
+<!-- /header -->
+
+<main>
+  <div id="breadcrumb">
+    <div class="container">
+      <ul>
+        <li>
+          <a routerLink="/">Home</a>
+        </li>
+
+        <li>Privacy</li>
+      </ul>
+    </div>
+  </div>
+  <!-- /breadcrumb -->
+
+  <!--  content -->
+
+
+
+
+  <div class="container margin_60">
+    <div class="row">
+      <!--<aside class="col-lg-3" id="sidebar">
+        <div class="box_style_cat" id="faq_box">
+          <ul id="cat_nav">
+            <li>
+              <a href="/patient/privacy#payment" class="active">
+                <i class="icon_document_alt"></i>Privacy</a>
+            </li>
+            <li>
+              <a href="/patient/privacy#tips">
+                <i class="icon_document_alt"></i>Suggestions</a>
+            </li>
+            <li>
+              <a href="/patient/privacy#reccomendations">
+                <i class="icon_document_alt"></i>Reccomendations</a>
+            </li>
+            <li>
+              <a href="/patient/privacy#booking">
+                <i class="icon_document_alt"></i>Booking</a>
+            </li>
+          </ul>
+        </div>
+      
+      </aside>-->
+      <!--/aside -->
+
+      <div class="col-lg-12" id="faq">
+	  
+	<p>Effective date: January 1, 2020</p>
+<p>At Ischedulenow, Inc.&nbsp;(&ldquo;Ischedulenow,&rdquo; &ldquo;we,&rdquo; or &ldquo;us&rdquo;), our most important value is &lsquo;Patients First&rsquo;, which means that we are committed to protecting your privacy and we take great care with your personal information that we gather when you access or use Ischedulenow.com and related websites, applications, and services owned and operated by Ischedulenow and that link to this Privacy Policy&nbsp;(collectively, the &ldquo;Services&rdquo;).&nbsp;This Privacy Policy is meant to help consumers that use our Services to explore providers or book appointments&nbsp;(&ldquo;Consumers&rdquo;)&nbsp;and providers and health systems that use our marketing services&nbsp;(&ldquo;Clients,&rdquo; and collectively with Consumers, &ldquo;you,&rdquo; or &ldquo;your&rdquo;)&nbsp;understand how we treat your personal information.&nbsp;<strong>BY USING OR ACCESSING THE SERVICES IN ANY MANNER, YOU ACKNOWLEDGE THAT YOU ACCEPT THE PRACTICES AND POLICIES OUTLINED IN THIS PRIVACY POLICY, AND YOU HEREBY CONSENT THAT WE WILL COLLECT, USE, AND SHARE YOUR INFORMATION IN THE FOLLOWING WAYS.&nbsp;IF YOU DO NOT AGREE WITH THIS PRIVACY POLICY, YOU MAY NOT USE THE SERVICES.&nbsp;IF YOU USE THE SERVICES ON BEHALF OF SOMEONE ELSE&nbsp;(SUCH AS YOUR CHILD)&nbsp;OR AN ENTITY&nbsp;(SUCH AS YOUR EMPLOYER), YOU REPRESENT THAT YOU ARE AUTHORIZED BY SUCH INDIVIDUAL OR ENTITY TO ACCEPT THIS PRIVACY POLICY ON SUCH INDIVIDUAL&rsquo;S OR ENTITY&rsquo;S BEHALF</strong>.&nbsp;A Consumer&rsquo;s use of Ischedulenow&rsquo;s Services is at all times subject to the Agreement&nbsp;(as the term &ldquo;Agreement&rdquo; is defined in our&nbsp;<a href="https://www.Ischedulenow.com/about/terms/"><strong>Terms of Use</strong></a>, which incorporates this Privacy Policy).&nbsp;You may print a copy of this Privacy Policy by clicking&nbsp;<strong>here</strong>.&nbsp;You can also learn more at&nbsp;<a href="https://www.Ischedulenow.com/trust"><strong>Ischedulenow.com/trust</strong></a>.&nbsp;Thank you so much for choosing Ischedulenow.</p>
+<p><strong>Privacy Policy Table of Contents</strong></p>
+<p><strong>HIPAA and PHI</strong></p>
+<p><strong>Personal Data</strong></p>
+<ul>
+<li>Consumer Personal Data
+<ul>
+<li>Categories of Personal Data We Collect</li>
+<li>Categories of Sources of Personal Data</li>
+<li>Commercial or Business Purposes for Collecting Data</li>
+<li>How We Share Your Personal Data</li>
+</ul>
+</li>
+<li>Client Personal Data
+<ul>
+<li>Categories of Personal Data We Collect</li>
+<li>Categories of Sources of Personal Data</li>
+<li>Commercial or Business Purposes for Collecting Data</li>
+<li>How We Share Your Personal Data</li>
+</ul>
+</li>
+</ul>
+<p><strong>Tracking Tools, Advertising and Opt-Out</strong></p>
+<p><strong>Data Security and Retention</strong></p>
+<p><strong>Children&rsquo;s Privacy</strong></p>
+<p><strong>How We Use Information That is Neither Personal Data nor PHI</strong></p>
+<p><strong>Controlling Your Personal Data &amp; Notifications</strong></p>
+<p><strong>California Rights</strong></p>
+<p><strong>Changes to this Privacy Policy</strong></p>
+<p><strong>Contact Information</strong></p>
+<p><strong>HIPAA and PHI</strong></p>
+<p>Certain demographic, health and/or health-related information that Ischedulenow collects about Consumers as part of providing the Services to our Clients may be considered &ldquo;protected health information&rdquo; or &ldquo;PHI&rdquo; under the Health Insurance Portability and Accountability Act&nbsp;(&ldquo;HIPAA&rdquo;).&nbsp;Specifically, when Ischedulenow, acting as a &ldquo;Business Associate&rdquo;&nbsp;(as such term is defined in HIPAA)&nbsp;receives identifiable information about a Consumer from or on behalf of a Client, or Customer&rsquo;s doctor, dentist, or other healthcare specialist, professional, provider, organization or agent or affiliate thereof&nbsp;(collectively, &ldquo;Healthcare Providers&rdquo;), this information is considered PHI.&nbsp;Personal data that a Consumer provides to Ischedulenow outside of the foregoing context is not PHI.&nbsp;For example, when you provide information directly to us,&nbsp;such as when creating&nbsp;an account or using&nbsp;our interactive tools and services,&nbsp;searching&nbsp;for Healthcare Providers or available appointments with Healthcare Providers, and completing medical history forms&nbsp;(&ldquo;Medical History Forms&rdquo;);&nbsp;or when you voluntarily provide information in free-form text boxes through the Services or through responses to surveys and questionnaires, or post reviews; or when you send us an email or otherwise contact us, that information is not PHI.</p>
+<p>HIPAA provides specific protections for the privacy and security of PHI and restricts how PHI is used and disclosed.&nbsp;Ischedulenow may only use and disclose PHI in the ways permitted by a Consumer&rsquo;s Healthcare Provider(s)&nbsp;or authorized by a Consumer.</p>
+<p><strong>Personal Data</strong></p>
+<p>The following subsections detail the categories of Personal Data that we collect and have collected over the past twelve&nbsp;(12)&nbsp;months.&nbsp;&ldquo;Personal Data&rdquo; means any information that identifies or relates to a particular individual and also includes information referred to as &ldquo;personally identifiable information&rdquo; or &ldquo;personal information&rdquo; under applicable data privacy laws, rules or regulations.&nbsp;For each category of Personal Data, these subsections also set out the source of that Personal Data, our commercial or business purpose for collecting that Personal Data and the categories of third parties with whom we share that Personal Data.&nbsp;More information regarding those sources and categories are set forth below.</p>
+<p><strong>Consumer Personal Data</strong></p>
+<p>THE FOLLOWING SUBSECTIONS APPLY ONLY TO CONSUMERS.&nbsp;IF YOU ARE A CLIENT, PLEASE SEE THE CLIENT PERSONAL DATA SECTION BELOW.</p>
+<p><strong>Categories of Personal Data We Collect</strong></p>
+<ul>
+<li>Payment Information
+<ul>
+<li>Examples of Personal Data Collected:
+<ul>
+<li>Payment card type</li>
+<li>Last four digits of payment card</li>
+<li>Billing contact</li>
+<li>Billing email</li>
+</ul>
+</li>
+<li>Source:
+<ul>
+<li>You</li>
+</ul>
+</li>
+<li>Third Parties with Whom We Share Data for Business Purposes:
+<ul>
+<li>Service Providers</li>
+</ul>
+</li>
+<li>Device/IP Information
+<ul>
+<li>Examples of Personal Data Collected:
+<ul>
+<li>IP address</li>
+<li>Device ID</li>
+<li>Domain server</li>
+<li>Type of device/operating system/browser used to access the Services</li>
+</ul>
+</li>
+<li>Source:
+<ul>
+<li>You</li>
+<li>Third Parties</li>
+</ul>
+</li>
+<li>Third Parties with Whom We Share Data for Business Purposes:
+<ul>
+<li>Service Providers</li>
+<li>Ad Networks</li>
+<li>Third-Party Business Partners You Access Through the Services</li>
+</ul>
+</li>
+<li>Web Analytics</li>
+<li>Examples of Personal Data Collected:
+<ul>
+<li>Web page interactions</li>
+<li>Referring webpage/source through which you access the Services</li>
+<li>Non-identifiable request IDs</li>
+<li>Statistics associated with the interaction between device or browser and the Services</li>
+</ul>
+</li>
+<li>Source:
+<ul>
+<li>You</li>
+<li>Third Parties</li>
+</ul>
+</li>
+<li>Third Parties with Whom We Share Data for Business Purposes:
+<ul>
+<li>Service Providers</li>
+<li>Ad Networks</li>
+<li>Third-Party Business Partners You Access Through the Services</li>
+</ul>
+</li>
+<li>Geolocation Data
+<ul>
+<li>Source:
+<ul>
+<li>You</li>
+<li>Third Parties</li>
+</ul>
+</li>
+<li>Third Parties with Whom We Share Data for Business Purposes:
+<ul>
+<li>Service Providers</li>
+<li>Ad Networks</li>
+<li>Third-Party Business Partners You Access Through the Services</li>
+</ul>
+</li>
+<li>Other Identifying Information That You Voluntarily Choose to Provide
+<ul>
+<li>Examples of Personal Data Collected:
+<ul>
+<li>Unique identifiers such as passwords</li>
+<li>Personal Data in emails or letters you send to us</li>
+</ul>
+</li>
+<li>Source:
+<ul>
+<li>You</li>
+</ul>
+</li>
+<li>Third Parties with Whom We Share Data for Business Purposes:
+<ul>
+<li>Service Providers</li>
+</ul>
+</li>
+<li>Consumer Contact Data
+<ul>
+<li>Examples of Personal Data Collected:
+<ul>
+<li>First and last name</li>
+<li>E-mail</li>
+<li>Phone number</li>
+<li>Mailing address</li>
+</ul>
+</li>
+<li>Source:
+<ul>
+<li>You</li>
+</ul>
+</li>
+<li>Third Parties with Whom We Share Data for Business Purposes:
+<ul>
+<li>Service Providers</li>
+<li>Ad Networks</li>
+<li>Healthcare Providers</li>
+<li>Insurance Providers</li>
+<li>Health Information Exchanges</li>
+<li>Parties You Authorize, Access or Authenticate</li>
+</ul>
+</li>
+<li>Consumer Demographic Data
+<ul>
+<li>Examples of Personal Data Collected:
+<ul>
+<li>Gender</li>
+<li>Age</li>
+<li>Date of birth</li>
+<li>Zip code</li>
+<li>Race</li>
+<li>Ethnicity</li>
+</ul>
+</li>
+<li>Source:
+<ul>
+<li>You</li>
+</ul>
+</li>
+<li>Third Parties with Whom We Share Data for Business Purposes:
+<ul>
+<li>Service Providers</li>
+<li>Ad Networks</li>
+<li>Healthcare Providers</li>
+<li>Health Information Exchanges</li>
+<li>Parties You Authorize, Access or Authenticate</li>
+</ul>
+</li>
+<li>Medical Data
+<ul>
+<li>Examples of Personal Data Collected:
+<ul>
+<li>Health conditions</li>
+<li>Healthcare Providers visited</li>
+<li>Reasons for visit</li>
+<li>Dates of visit</li>
+<li>Medical history and health information you provide us</li>
+</ul>
+</li>
+<li>Source:
+<ul>
+<li>You</li>
+</ul>
+</li>
+<li>Third Parties with Whom We Share Data for Business Purposes:
+<ul>
+<li>Service Providers</li>
+<li>Healthcare Providers</li>
+<li>Insurance Providers</li>
+<li>Health Information Exchanges</li>
+<li>Parties You Authorize, Access or Authenticate</li>
+</ul>
+</li>
+<li>Insurance Information
+<ul>
+<li>Examples of Personal Data Collected:
+<ul>
+<li>Insurance carrier</li>
+<li>Insurance plan</li>
+<li>Member ID</li>
+<li>Group ID</li>
+<li>Payer ID</li>
+</ul>
+</li>
+<li>Source:
+<ul>
+<li>You</li>
+</ul>
+</li>
+<li>Third Parties with Whom We Share Data for Business Purposes:
+<ul>
+<li>Service Providers</li>
+<li>Healthcare Providers</li>
+<li>Health Information Exchanges</li>
+<li>Parties You Authorize, Access or Authenticate</li>
+</ul>
+</li>
+<li>Booking Appointment Data
+<ul>
+<li>Examples of Personal Data Collected:
+<ul>
+<li>Appointment date/time</li>
+<li>Provider information</li>
+<li>Appointment procedure</li>
+<li>Whether or not user is a new patient for a particular provider</li>
+</ul>
+</li>
+<li>Source:
+<ul>
+<li>You</li>
+<li>Healthcare Providers</li>
+</ul>
+</li>
+<li>Third Parties with Whom We Share Data for Business Purposes:
+<ul>
+<li>Service Providers</li>
+<li>Healthcare Providers</li>
+<li>Health Information Exchanges</li>
+</ul>
+</li>
+<li>Social Network Data
+<ul>
+<li>Examples of Personal Data Collected:
+<ul>
+<li>E-mail</li>
+<li>Phone number</li>
+<li>Username</li>
+<li>IP address</li>
+<li>Device ID</li>
+</ul>
+</li>
+<li>Source:
+<ul>
+<li>You</li>
+<li>Third Parties</li>
+</ul>
+</li>
+<li>Third Parties with Whom We Share Data for Business Purposes:
+<ul>
+<li>Service Providers</li>
+<li>Ad Networks</li>
+<li>Parties You Authorize, Access or Authenticate</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Categories of Sources of Personal Data</strong></p>
+<ul>
+<li>You
+<ul>
+<li>When You Provide Information Directly to Us
+<ul>
+<li>When you create an account or use our interactive tools and services, such as searching for Healthcare Providers or available appointments with Healthcare Providers and completing Medical History Forms prior to Healthcare Provider appointments.</li>
+<li>When you voluntarily provide information in free-form text boxes through the Services or through responses to surveys and questionnaires, or post reviews.</li>
+<li>When you send us an email or otherwise contact us.</li>
+</ul>
+</li>
+<li>When Personal Data is Automatically Collected When You Use the Services
+<ul>
+<li>Through Cookies&nbsp;(defined below).</li>
+<li>If you download and install certain applications and software we make available, we may receive and collect information transmitted from your computing device for the purpose of providing you the relevant Services, such as information regarding when you are logged on and available to receive updates or alert notices.</li>
+<li>If you download our mobile application or use a location-enabled browser, we may receive information about your location and mobile device, as applicable.</li>
+</ul>
+</li>
+<li>Third Parties
+<ul>
+<li>Service Providers
+<ul>
+<li>We may use analytics service providers to analyze how you interact and engage with the Services, or third parties may help us provide you with customer support.</li>
+<li>We may use service providers to obtain information to generate leads and create user profiles.</li>
+</ul>
+</li>
+<li>Advertising Partners
+<ul>
+<li>We receive information about you from some of our service providers who assist us with marketing or promotional services related to how you interact with our websites, applications, products, services, advertisements or communications.</li>
+</ul>
+</li>
+<li>Healthcare Providers
+<ul>
+<li>We may receive certain data from your Healthcare Provider or Clients to facilitate Consumer booking of appointments.</li>
+</ul>
+</li>
+<li>Social Networks
+<ul>
+<li>If you provide your social network account credentials to us or otherwise sign in to the Services through a third-party site or service, you understand some content and/or information in those accounts may be transmitted into your account with us.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Commercial or Business Purposes for Collecting Data</strong></p>
+<ul>
+<li>Providing, Customizing, and Improving the Services
+<ul>
+<li>Creating and managing your account or other user profiles, billing.</li>
+<li>Providing you with the products, services and information you request.</li>
+<li>Meeting or fulfilling the reason you provided the information to us.</li>
+<li>Providing support and assistance for the Services.</li>
+<li>Improving the Services, including testing, research, internal analytics, and product development.</li>
+<li>Personalizing the Services, website content and communications based on your preferences.</li>
+<li>Fraud protection, security and debugging.</li>
+</ul>
+</li>
+<li>Marketing the Services
+<ul>
+<li>Marketing and selling the Services.</li>
+<li>Showing you advertisements, including interest-based or online behavioral advertising.</li>
+</ul>
+</li>
+<li>Corresponding with You
+<ul>
+<li>Responding to correspondence that we receive from you, contacting you when necessary or requested, including to remind you of an upcoming appointment, and sending you information about Ischedulenow or the Services.</li>
+<li>Sending emails and other communications that display content that we think will interest you and according to your preferences including notifying you about certain resources, Healthcare Providers or services.</li>
+</ul>
+</li>
+<li>Legal Requirements
+<ul>
+<li>Fulfilling our legal obligations under applicable law, regulation, court order or other legal process, such as preventing, detecting and investigating security incidents and potentially illegal or prohibited activities.</li>
+<li>Protecting the rights, property or safety of you, Ischedulenow or another party.</li>
+<li>Enforcing any agreements with you.</li>
+<li>Responding to claims that any posting or other content violates third-party rights.</li>
+<li>Resolving disputes.</li>
+</ul>
+</li>
+</ul>
+<p><strong>How We Share Your Personal Data</strong></p>
+<p>In certain circumstances, we may share your Personal Data with the following categories of service providers and other third parties for the indicated business purposes:</p>
+<ul>
+<li>Service Providers
+<ul>
+<li>Payment Processors
+<ul>
+<li>Our payment processing partner&nbsp;(currently Stripe, Inc.&nbsp;(&ldquo;Stripe&rdquo;))&nbsp;collects your voluntarily provided payment card information necessary to process your payment.</li>
+<li>Please see Stripe&rsquo;s terms of service and privacy policy for information on its use and storage of personal data.</li>
+</ul>
+</li>
+<li>Security and Fraud Prevention Consultants
+<ul>
+<li>Detecting security incidents, protecting against malicious, deceptive, fraudulent, or illegal activity, and prosecuting those responsible for that activity.</li>
+</ul>
+</li>
+<li>Hosting, Technology and Communications Providers; Fulfillment Providers; Data Storage Providers; Analytics Providers; Insurance Verification Providers; Staff Augmentation Personnel
+<ul>
+<li>To perform operational services&nbsp;(such as hosting, billing, fulfillment, data storage, security, insurance verification, web service analytics)&nbsp;and/or make certain services, features or functionality available to our users.</li>
+<li>Debugging to identify and repair errors that impair existing intended functionality.</li>
+<li>Short-term, transient use of Personal Data that is not used by another party to build a consumer profile or otherwise alter your consumer experience outside the current interaction.</li>
+<li>Performing services on our behalf, including maintaining or servicing accounts, providing customer service, processing or fulfilling orders and transactions, verifying customer information, processing payments, providing financing, providing advertising or marketing services, providing analytic services, or providing similar services on behalf of the business or service provider.</li>
+<li>Undertaking internal research for technological development and demonstration.</li>
+<li>Undertaking activities to verify or maintain the quality or safety of our services.</li>
+</ul>
+</li>
+<li>Selected Recipients
+<ul>
+<li>Ad Networks
+<ul>
+<li>Ad customizing and serving.</li>
+<li>Auditing related to a current interaction and concurrent transactions, including, but not limited to, counting ad impressions to unique visitors, verifying positioning and quality of ad impressions, and auditing compliance with this specification and other standards.</li>
+</ul>
+</li>
+<li>Health Information Exchanges
+<ul>
+<li>Health Information Exchanges and related organizations that collect and organize Consumer information&nbsp;(such as Regional Health Information Organizations)&nbsp;to make your information more securely and easily accessible to your Healthcare Providers.&nbsp;The goal of such organizations is to facilitate access to health information to improve the safety, quality, and efficiency of patient-centered care.&nbsp;More information on Health Information Exchanges can be found&nbsp;<a href="https://www.healthit.gov/HIE"><strong>here</strong></a>.</li>
+</ul>
+</li>
+<li>Healthcare Providers
+<ul>
+<li>Healthcare Providers with whom Consumers choose to schedule through the Services.&nbsp;For example, if you complete a Medical History Form using the Services in advance of an appointment and elect to share it with your selected Healthcare Provider.</li>
+<li>If you choose to use the applicable Services, Healthcare Providers to enable them to refer you to and make appointments with other Healthcare Providers on your behalf or to perform analyses on potential health issues or treatments.</li>
+<li>In the event of an emergency.</li>
+</ul>
+</li>
+<li>Insurance Providers
+<ul>
+<li>To determine eligibility and cost-sharing obligations, and to otherwise obtain benefit plan information on your behalf.</li>
+</ul>
+</li>
+<li>Parties You Authorize, Access or Authenticate
+<ul>
+<li>Third-Party Business Partners You Access Through the Services
+<ul>
+<li>We will share certain Personal Data if you choose to use any service to log in to the Services.</li>
+<li>To meet or fulfill the reason you provided the information to us.</li>
+</ul>
+</li>
+<li>Other Users
+<ul>
+<li>Any information that you may reveal in a review posting or online discussion or forum is intentionally open to the public and is not in any way private.&nbsp;We recommend that you carefully consider whether to disclose any Personal Data in any public posting or forum.&nbsp;What you have written may be seen and/or collected by third parties and may be used by others in ways we are unable to control or predict.&nbsp;You can learn more about our reviews process at&nbsp;<a href="https://www.Ischedulenow.com/verifiedreviews"><strong>com/verifiedreviews</strong></a>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Client Personal Data</strong></p>
+<p>THE FOLLOWING SUBSECTIONS APPLY ONLY TO CLIENTS.&nbsp;IF YOU ARE A CONSUMER, PLEASE SEE THE CONSUMER PERSONAL DATA SECTION ABOVE.</p>
+<p><strong>Categories of Personal Data We Collect</strong></p>
+<ul>
+<li>Payment Information
+<ul>
+<li>Examples of Personal Data Collected:
+<ul>
+<li>Payment card type</li>
+<li>Last four digits of payment card</li>
+<li>Billing contact</li>
+<li>Billing email</li>
+</ul>
+</li>
+<li>Source:
+<ul>
+<li>You</li>
+</ul>
+</li>
+<li>Third Parties with Whom We Share Data for Business Purposes:
+<ul>
+<li>Service Providers</li>
+</ul>
+</li>
+<li>Device/IP Information
+<ul>
+<li>Examples of Personal Data Collected:
+<ul>
+<li>IP address</li>
+<li>Device ID</li>
+<li>Domain server</li>
+<li>Type of device/operating system/browser used to access the Services</li>
+</ul>
+</li>
+<li>Source:
+<ul>
+<li>You</li>
+<li>Third Parties</li>
+</ul>
+</li>
+<li>Third Parties with Whom We Share Data for Business Purposes:
+<ul>
+<li>Service Providers</li>
+<li>Ad Networks</li>
+<li>Third-Party Business Partners You Access Through the Services</li>
+</ul>
+</li>
+<li>Web Analytics</li>
+<li>Examples of Personal Data Collected:
+<ul>
+<li>Web page interactions</li>
+<li>Referring webpage/source through which you access the Services</li>
+<li>Non-identifiable request IDs</li>
+<li>Statistics associated with the interaction between device or browser and the Services</li>
+</ul>
+</li>
+<li>Source:
+<ul>
+<li>You</li>
+<li>Third Parties</li>
+</ul>
+</li>
+<li>Third Parties with Whom We Share Data for Business Purposes:
+<ul>
+<li>Service Providers</li>
+<li>Ad Networks</li>
+<li>Third-Party Business Partners You Access Through the Services</li>
+</ul>
+</li>
+<li>Geolocation Data
+<ul>
+<li>Source:
+<ul>
+<li>You</li>
+<li>Third Parties</li>
+</ul>
+</li>
+<li>Third Parties with Whom We Share Data for Business Purposes:
+<ul>
+<li>Service Providers</li>
+<li>Ad Networks</li>
+<li>Third-Party Business Partners You Access Through the Services</li>
+</ul>
+</li>
+<li>Other Identifying Information That You Voluntarily Choose to Provide
+<ul>
+<li>Examples of Personal Data Collected:
+<ul>
+<li>Unique identifiers such as passwords</li>
+<li>Personal Data in emails or letters you send to us</li>
+<li>Personal information that you disclose over the phone</li>
+</ul>
+</li>
+<li>Source:
+<ul>
+<li>You</li>
+</ul>
+</li>
+<li>Third Parties with Whom We Share Data for Business Purposes:
+<ul>
+<li>Service Providers</li>
+</ul>
+</li>
+<li>Client Contact Data
+<ul>
+<li>Examples of Personal Data Collected:
+<ul>
+<li>First and last name</li>
+<li>E-mail</li>
+<li>Phone number</li>
+<li>Mailing address</li>
+</ul>
+</li>
+<li>Source:
+<ul>
+<li>You</li>
+<li>Third Parties</li>
+</ul>
+</li>
+<li>Third Parties with Whom We Share Data for Business Purposes:
+<ul>
+<li>Service Providers</li>
+<li>Ad Networks</li>
+<li>Healthcare Providers</li>
+<li>Insurance Providers</li>
+<li>Health Information Exchanges</li>
+<li>Parties You Authorize, Access or Authenticate</li>
+</ul>
+</li>
+<li>Client Demographic Data
+<ul>
+<li>Examples of Personal Data Collected:
+<ul>
+<li>Gender</li>
+<li>Age</li>
+<li>Date of birth</li>
+<li>Zip code</li>
+<li>Race</li>
+<li>Ethnicity</li>
+</ul>
+</li>
+<li>Source:
+<ul>
+<li>You</li>
+<li>Third Parties</li>
+</ul>
+</li>
+<li>Third Parties with Whom We Share Data for Business Purposes:
+<ul>
+<li>Service Providers</li>
+<li>Ad Networks</li>
+<li>Healthcare Providers</li>
+<li>Insurance Providers</li>
+<li>Health Information Exchanges</li>
+<li>Parties You Authorize, Access or Authenticate</li>
+</ul>
+</li>
+<li>Professional License Information
+<ul>
+<li>Examples of Personal Data Collected:
+<ul>
+<li>Professional licenses</li>
+<li>Education history</li>
+<li>Specialties and certifications</li>
+</ul>
+</li>
+<li>Source:
+<ul>
+<li>You</li>
+<li>Third Parties</li>
+</ul>
+</li>
+<li>Third Parties with Whom We Share Data for Business Purposes:
+<ul>
+<li>Service Providers</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Categories of Sources of Personal Data</strong></p>
+<ul>
+<li>You
+<ul>
+<li>When You Provide Information Directly to Us
+<ul>
+<li>When you create an account.</li>
+<li>When you send us an email or otherwise contact us.</li>
+</ul>
+</li>
+<li>When Personal Data is Automatically Collected When You Use the Services
+<ul>
+<li>Through Cookies&nbsp;(defined below).</li>
+<li>If you download and install certain applications and software we make available, we may receive and collect information transmitted from your computing device for the purpose of providing you the relevant Services, such as information regarding when you are logged on and available to receive updates or alert notices.</li>
+<li>If you download our mobile application or use a location-enabled browser, we may receive information about your location and mobile device, as applicable.</li>
+</ul>
+</li>
+<li>Third Parties
+<ul>
+<li>Service Providers
+<ul>
+<li>We may use analytics service providers to analyze how you interact and engage with the Services, or third parties may help us provide you with customer support.</li>
+<li>We may use service providers to obtain information to generate leads and create user profiles.</li>
+</ul>
+</li>
+<li>Advertising Partners
+<ul>
+<li>We receive information about you from some of our service providers who assist us with marketing or promotional services related to how you interact with our websites, applications, products, services, advertisements or communications.</li>
+</ul>
+</li>
+<li>Government or Public Records
+<ul>
+<li>We may use government or other public records for onboarding or verifying Clients.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Commercial or Business Purposes for Collecting Data</strong></p>
+<ul>
+<li>Providing, Customizing, and Improving the Services
+<ul>
+<li>Creating and managing your account or other user profiles, billing.</li>
+<li>Providing you with the products, services and information you request.</li>
+<li>Meeting or fulfilling the reason you provided the information to us.</li>
+<li>Providing support and assistance for the Services.</li>
+<li>Improving the Services, including testing, research, internal analytics, and product development.</li>
+<li>Personalizing the Services, website content and communications based on your preferences.</li>
+<li>Fraud protection, security and debugging.</li>
+</ul>
+</li>
+<li>Marketing the Services
+<ul>
+<li>Marketing and selling the Services.</li>
+<li>Showing you advertisements, including interest-based or online behavioral advertising.</li>
+</ul>
+</li>
+<li>Corresponding with You
+<ul>
+<li>Responding to correspondence that we receive from you, contacting you when necessary or requested, including to remind you of an upcoming appointment, and sending you information about Ischedulenow or the Services.</li>
+<li>Sending emails and other communications that display content that we think will interest you and according to your preferences including notifying you about certain resources, Healthcare Providers or services.</li>
+</ul>
+</li>
+<li>Legal Requirements
+<ul>
+<li>Fulfilling our legal obligations under applicable law, regulation, court order or other legal process, such as preventing, detecting and investigating security incidents and potentially illegal or prohibited activities.</li>
+<li>Protecting the rights, property or safety of you, Ischedulenow or another party.</li>
+<li>Enforcing any agreements with you.</li>
+<li>Responding to claims that any posting or other content violates third-party rights.</li>
+<li>Resolving disputes.</li>
+</ul>
+</li>
+<li>Onboarding Verification
+<ul>
+<li>Confirming providers have necessary credentials to practice in the state where advertised.</li>
+</ul>
+
+</li>
+</ul>
+<p><strong>How We Share Your Personal Data</strong></p>
+<p>In certain circumstances, we may share your Personal Data with the following categories of service providers and other third parties for the indicated business purposes:</p>
+<ul>
+<li>Service Providers
+<ul>
+<li>Payment Processors
+<ul>
+<li>Our payment processing partner&nbsp;(currently Stripe, Inc.&nbsp;(&ldquo;Stripe&rdquo;))&nbsp;collects your voluntarily provided payment card information necessary to process your payment.</li>
+<li>Please see Stripe&rsquo;s terms of service and privacy policy for information on its use and storage of personal data.</li>
+</ul>
+</li>
+<li>Security and Fraud Prevention Consultants
+<ul>
+<li>Detecting security incidents, protecting against malicious, deceptive, fraudulent, or illegal activity, and prosecuting those responsible for that activity.</li>
+</ul>
+</li>
+<li>Hosting, Technology and Communications Providers; Fulfillment Providers; Data Storage Providers; Analytics Providers; Insurance Verification Providers; Staff Augmentation Personnel
+<ul>
+<li>To perform operational services&nbsp;(such as hosting, billing, fulfillment, data storage, security, insurance verification, web service analytics)&nbsp;and/or make certain services, features or functionality available to our users.</li>
+<li>Debugging to identify and repair errors that impair existing intended functionality.</li>
+<li>Short-term, transient use of Personal Data that is not used by another party to build a consumer profile or otherwise alter your consumer experience outside the current interaction.</li>
+<li>Performing services on our behalf, including maintaining or servicing accounts, providing customer service, processing or fulfilling orders and transactions, verifying customer information, processing payments, providing financing, providing advertising or marketing services, providing analytic services, or providing similar services on behalf of the business or service provider.</li>
+<li>Undertaking internal research for technological development and demonstration.</li>
+<li>Undertaking activities to verify or maintain the quality or safety of our services.</li>
+</ul>
+</li>
+<li>Selected Recipients
+<ul>
+<li>Ad Networks
+<ul>
+<li>Ad customizing and serving.</li>
+<li>Auditing related to a current interaction and concurrent transactions, including, but not limited to, counting ad impressions to unique visitors, verifying positioning and quality of ad impressions, and auditing compliance with this specification and other standards.</li>
+</ul>
+</li>
+<li>Health Information Exchanges
+<ul>
+<li>Health Information Exchanges and related organizations that collect and organize Consumer information&nbsp;(such as Regional Health Information Organizations)&nbsp;to make your information more securely and easily accessible to your Healthcare Providers.&nbsp;The goal of such organizations is to facilitate access to health information to improve the safety, quality, and efficiency of patient-centered care.&nbsp;More information on Health Information Exchanges can be found&nbsp;<a href="https://www.healthit.gov/HIE"><strong>here</strong></a>.</li>
+</ul>
+</li>
+<li>Parties You Authorize, Access or Authenticate
+<ul>
+<li>Third-Party Business Partners You Access Through the Services
+<ul>
+<li>We will share certain Personal Data if you choose to use any service to log in to the Services.</li>
+<li>To meet or fulfill the reason you provided the information to us.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>THE FOLLOWING SECTIONS APPLY TO BOTH CONSUMERS AND CLIENTS.</p>
+<p><strong>Business Transfers</strong></p>
+<p>All Personal Data may be transferred to a third party if we undergo a merger, acquisition, bankruptcy or other transaction in which that third party assumes control of our business&nbsp;(in whole or in part).&nbsp;Should one of these events occur, we will make reasonable efforts to notify you before your information becomes subject to different privacy and security policies and practices.</p>
+<p><strong>Tracking Tools, Advertising and Opt-Out</strong></p>
+<p>The following sections provide additional information about how we collect your Personal Data.</p>
+<p><strong>Information Collected Automatically</strong></p>
+<p>The Services use cookies and similar technologies such as pixel tags, web beacons, clear GIFs, mobile identifiers, and JavaScript&nbsp;(collectively, &ldquo;Cookies&rdquo;)&nbsp;to enable our servers to recognize your web browser and tell us how and when you visit and use our Services.&nbsp;We do this to analyze trends, learn about and advertise to our user base, and operate and improve our Services.&nbsp;For example, we use Cookies to tailor the Services or customize advertisements by tracking navigation habits, measuring performance, storing authentication status so re-entering credentials is not required, customizing user experiences with the Services and for analytics and fraud prevention.&nbsp;Cookies are small pieces of data&ndash; usually text files &ndash; placed on your computer, tablet, phone, or similar device when you use that device to visit our Services.&nbsp;We may also supplement the information we collect from you with information received from third parties, including third parties that have placed their own Cookies on your device(s).</p>
+<p>We use the following types of Cookies:</p>
+<ul>
+<li>Essential Cookies.&nbsp;Essential Cookies are required for providing you with features or services that you have requested.&nbsp;For example, certain Cookies enable you to log into the secure areas of our Services.&nbsp;Disabling these Cookies may make certain features and services unavailable.</li>
+<li>Functional Cookies.&nbsp;Functional Cookies are used to record your choices and settings regarding our Services, maintain your preferences over time and recognize you when you return to our Services.&nbsp;These Cookies help us to personalize our content for you, greet you by name, and remember your preferences&nbsp;(for example, your choice of language or region).</li>
+<li>Performance/Analytical Cookies.&nbsp;Performance/Analytical Cookies allow us to understand how visitors use our Services such as by collecting information about the number of visitors to the Services, what pages visitors view on our Services, how long visitors are viewing pages on the Services, mouse clicks, mouse movements, scrolling activity, and text typed into the Services.&nbsp;Performance/Analytical Cookies also help us measure the performance of our advertising campaigns in order to help us improve our campaigns and the Services&rsquo; content for those who engage with our advertising.&nbsp;For example, Google Inc.&nbsp;(&ldquo;Google&rdquo;)&nbsp;uses cookies in connection with its Google Analytics services.&nbsp;Google&rsquo;s ability to use and share information collected by Google Analytics about your visits to the Services is subject to the Google Analytics Terms of Use and the Google Privacy Policy.&nbsp;You have the option to opt-out of Google&rsquo;s use of cookies by visiting the Google advertising opt-out page at&nbsp;<a href="https://www.google.com/privacy_ads.html"><strong>google.com/privacy_ads.html</strong></a>or the Google Analytics Opt-out Browser Add-on at&nbsp;<a href="https://tools.google.com/dlpage/gaoptout/"><strong>https://tools.google.com/dlpage/gaoptout/</strong></a>.</li>
+<li>Retargeting/Advertising Cookies.&nbsp;Retargeting/Advertising Cookies collect data about your online activity and identify your interests so that we can provide advertising that we believe is relevant to you.&nbsp;For more information about this, please see the section below titled &ldquo;Information about Interest-Based Advertisements.&rdquo;</li>
+<li>Web Beacons.&nbsp;Web Beacons&nbsp;(e.g., clear GIFs or pixel tags)&nbsp;are tiny graphic image files embedded in a web page or email that may be used to collect information about the use of our Services, the web services of selected advertisers and the emails, special promotions or newsletters that we send.&nbsp;The information collected by Web Beacons allows us to analyze how many people are using the Services, using selected publishers&rsquo; web services or opening emails, and for what purpose, and also allows us to enhance our interest-based advertising&nbsp;(discussed further below).</li>
+<li>Mobile Device Identifiers.&nbsp;Mobile device identifiers help Ischedulenow learn more about our users&rsquo; demographics and internet behaviors.&nbsp;Mobile device identifiers are data stored on mobile devices that may track mobile device and data and activities occurring on and through it, as well as the applications installed on it.&nbsp;Mobile device identifiers enable collection of Personal Data&nbsp;(such as media access control, address and location, and tracking data, including without limitation IP address, domain server, type of device(s)&nbsp;used to access the Services, web browser(s)&nbsp;used to access the Services, referring webpage or other source through which you accessed the Services, other statistics and information associated with the interaction between your browser or device and the Services).</li>
+<li>Cross Device Matching.&nbsp;To determine if users have interacted with content across multiple devices and to match such devices, we may work with partners who analyze device activity data and/or rely on your information&nbsp;(including demographic, geographic and interest-based data).&nbsp;To supplement this analysis, we may also provide de-identified data to these partners.&nbsp;Based on this data, we may then display targeted advertisements across devices that we believe are associated or use this data to further analyze usage of Services across devices.</li>
+</ul>
+<p>You can decide whether or not to accept Cookies through your internet browser&rsquo;s settings.&nbsp;Most browsers have an option for turning off the Cookie feature, which will prevent your browser from accepting new Cookies, as well as&nbsp;(depending on your browser software)&nbsp;allow you to decide on acceptance of each new Cookie in a variety of ways.&nbsp;You may also be able to reject mobile device identifiers by activating the appropriate setting on your mobile device.&nbsp;You can also delete all Cookies that are already on your computer.&nbsp;Although you are not required to accept Ischedulenow&rsquo;s Cookies, if you block, reject, or delete them, you may have to manually adjust some preferences every time you visit a site and some of the Services and functionalities may not work.</p>
+<p>To explore what Cookie settings are available to you, look in the &ldquo;preferences&rdquo; or &ldquo;options&rdquo; section of your browser&rsquo;s menu.&nbsp;To find out more information about Cookies, including information about how to manage and delete Cookies, please visit&nbsp;<a href="http://www.allaboutcookies.org/"><strong>http://www.allaboutcookies.org/</strong></a>.</p>
+<p>Your browser may offer you a &ldquo;Do Not Track&rdquo; option, which allows you to signal to operators of websites and web applications and services that you do not wish such operators to track certain of your online activities over time and across different websites.&nbsp;Not all browsers offer a Do Not Track option and there is currently no industry consensus as to what constitutes a Do Not Track signal.&nbsp;Please note that, for these reasons and because of our use of Cookies, our Services, like many website operators, do not support &ldquo;Do Not Track&rdquo; requests sent from a browser at this time.&nbsp;To find out more about &ldquo;Do Not Track,&rdquo; you can visit&nbsp;<a href="https://www.allaboutdnt.com/"><strong>www.allaboutdnt.com</strong></a>.</p>
+<p><strong>Information about Interest-Based Advertisements:</strong></p>
+<p>We may serve advertisements, and also allow third-party ad networks, including third-party ad servers, ad agencies, ad technology vendors and research firms, to serve advertisements through the Services.&nbsp;These advertisements may be targeted to users who fit certain general profile categories or display certain preferences or behaviors&nbsp;(&ldquo;Interest-Based Ads&rdquo;).&nbsp;Information for Interest-Based Ads&nbsp;(including Personal Data)&nbsp;may be provided to us by you, or derived or inferred from the online activity or usage patterns of particular users on the Services and/or services of third parties.&nbsp;Such information may include IP address, mobile device ID, operating system, browser, web page interactions, geographic location and demographic information, such as gender and age range.&nbsp;Such information may be gathered through tracking users&rsquo; activities across time and unaffiliated properties, including when you leave the Services.&nbsp;To accomplish this, we or our service providers may deliver Cookies, including Web Beacons, from an ad network to you through the Services.&nbsp;Web Beacons allow ad networks to provide anonymized, aggregated auditing, research and reporting for us and for advertisers.&nbsp;This information helps Ischedulenow learn more about our users&rsquo; demographics and internet behaviors.&nbsp;Web Beacons also enable ad networks to serve targeted advertisements to you when you visit other websites.&nbsp;Web Beacons allow ad networks to view, edit or set their own Cookies on your browser, just as if you had requested a web page from their site.</p>
+<p>We comply with the Digital Advertising Alliance&nbsp;(&ldquo;DAA&rdquo;)&nbsp;Self-Regulatory Principles for Online Behavioral Advertising.&nbsp;Through the DAA and Network Advertising Initiative&nbsp;(&ldquo;NAI&rdquo;), several media and marketing associations have developed an industry self-regulatory program to give consumers a better understanding of, and greater control over, ads that are customized based a consumer&rsquo;s online behavior across different websites and properties.&nbsp;To make choices about Interest-Based Ads from participating third parties, including to opt-out of receiving behaviorally targeted advertisements from participating organizations, please visit the DAA&rsquo;s or NAI&rsquo;s consumer opt-out pages, which are located at&nbsp;<a href="http://www.networkadvertising.org/choices/"><strong>http://www.networkadvertising.org/choices/</strong></a>&nbsp;or&nbsp;<a href="https://www.aboutads.info/choices"><strong>www.aboutads.info/choices</strong></a>, or install the DAA&rsquo;s AppChoice app&nbsp;(for&nbsp;<a href="https://itunes.apple.com/us/app/appchoices/id894822870?mt=8"><strong>iOS</strong></a>; for&nbsp;<a href="https://play.google.com/store/apps/details?id=com.DAA.appchoices&amp;hl=en"><strong>Android</strong></a>)&nbsp;on your mobile computing device.&nbsp;When you use these opt-out features, an &ldquo;opt-out&rdquo; Cookie will be placed on your computer, tablet or mobile computing device indicating that you do not want to receive Interest-Based Ads from NAI or DAA member companies.&nbsp;If you delete Cookies on your computer, tablet or mobile computing device, you may need to opt out again.&nbsp;For information about how to opt out of Interest-Based Ads on mobile devices, please visit&nbsp;<a href="http://www.applicationprivacy.org/expressing-your-behavioral-advertising-choices-on-a-mobile-device"><strong>http://www.applicationprivacy.org/expressing-your-behavioral-advertising-choices-on-a-mobile-device</strong></a>.&nbsp;You will need to opt out of each browser and device for which you desire to apply these opt-out features.</p>
+<p>Please note that even after opting out of Interest-Based Ads, you may still see Ischedulenow advertisements that are not interest-based&nbsp;(i.e., not targeted toward you).&nbsp;Also, opting out does not mean that Ischedulenow is no longer using tracking tools &mdash; Ischedulenow still may collect information about your use of the Services even after you have opted out of Interest-Based Ads and may still serve advertisements to you via the Services based on information collected via the Services.</p>
+<p><strong>Data Security and Retention</strong></p>
+<p>The security of your Personal Data is important to us.&nbsp;We seek to protect your Personal Data from unauthorized access, use and disclosure using appropriate physical, technical, organizational and administrative security measures based on the type of Personal Data and how we are processing that data.&nbsp;We endeavor to follow generally accepted industry standards to protect the Personal Data submitted to us, both during transmission and in storage.&nbsp;For example, the Services use industry standard Secure Sockets Layer&nbsp;(SSL)&nbsp;technology to allow for the encryption of Personal Data.&nbsp;We store and process your information on our servers in the United States and abroad.&nbsp;We maintain what we consider industry standard backup and archival systems.&nbsp;You should also help protect your data by appropriately selecting and protecting your password and/or other sign-on mechanism; limiting access to your computer or device and browser; and signing off after you have finished accessing your account.&nbsp;Although we work to protect the security of your account and other data that we hold in our records, for example, by making good faith efforts to store Personal Data in a secure operating environment that is not open to the public, please be aware that no method of transmitting data over the Internet or storing data is completely secure.&nbsp;We cannot and do not guarantee the complete security of any data you share with us, and except as expressly required by law, we are not responsible for the theft, destruction, loss or inadvertent disclosure of your information or content.</p>
+<p>If at any time during or after our relationship we believe that the security of your Personal Data may have been compromised, we may seek to notify you of that development.&nbsp;If a notification is appropriate, we will endeavor to notify you as promptly as possible under the circumstances.&nbsp; If we have your e-mail address, we may notify you by e-mail to the most recent e-mail address you have provided us in your account profile.&nbsp;Please keep your e-mail address in your account up to date.&nbsp;You can update that e-mail address anytime in your account profile.&nbsp;If you receive a notice from us, you can print it to retain a copy of it.&nbsp;To receive these notices, you must check your e-mail account using your computer or mobile device and email application software.&nbsp;<strong>You consent to our use of e-mail as a means of such notification.&nbsp;If you prefer for us to use the U.S.&nbsp;Postal Service to notify you in this situation, please e-mail us at&nbsp;</strong><a href="mailto:Privacy-Notice@Ischedulenow.com"><strong>Privacy-Notice@Ischedulenow.com</strong></a><strong>.</strong>&nbsp;Please include your address when you submit your request.&nbsp;You can make this election any time, and it will apply to notifications we make after a reasonable time thereafter for us to process your request.&nbsp;You may also use this e-mail address to request a print copy, at no charge, of an electronic notice we have sent to you regarding a compromise of your Personal Data.</p>
+<p>We retain Personal Data about you consistent with all internal policies and procedures.&nbsp;We may retain Personal Data to comply with our legal obligations, resolve disputes or collect fees owed, or as is otherwise permitted or required by our data retention policies and procedures.</p>
+<p><strong>Children&rsquo;s Privacy</strong></p>
+<p>The Services are not directed to or intended for use by children under 13 years of age.&nbsp;If you are a child under the age of 13, please do not attempt to register for or otherwise use the Services or send us any Personal Data.&nbsp;By accessing, using and/or submitting information to or through the Services, you represent that you are not under the age of 13.&nbsp;As noted in the Terms of Use, we do not knowingly collect or solicit Personal Data from children under the age of 13.&nbsp;If we learn that we have received any Personal Data directly from a child under age 13 without first receiving his or her parent&rsquo;s verified consent, we will use that Personal Data only to respond directly to that child&nbsp;(or his or her parent or legal guardian)&nbsp;to inform the child that he or she cannot use the Services.&nbsp;We will then subsequently delete that child&rsquo;s Personal Data.&nbsp;If you believe that a child under 13 may have provided us with Personal Data, please contact us at&nbsp;<a href="mailto:Privacy@Ischedulenow.com"><strong>Privacy@Ischedulenow.com</strong></a>.</p>
+<p>If you are between age thirteen&nbsp;(13)&nbsp;and the age of majority in your place of residence, you may use the Services only with the consent of or under the supervision of your parent or legal guardian.&nbsp;If you are a parent or legal guardian of a minor child, you may, in compliance with the Agreement, use the Services on behalf of such minor child.&nbsp;Any information that you provide us while using the Services on behalf of your minor child will be treated as Personal Data as otherwise provided herein.</p>
+<p>If you use the Services on behalf of another person, regardless of age, you agree that Ischedulenow may contact you for any communication made in connection with providing the Services or any legally required communications.&nbsp;You further agree to forward or share any such communication with any person for whom you are using the Services on behalf.</p>
+<p><strong>How We Use Information That is Neither Personal Data nor PHI&nbsp;</strong></p>
+<p>We may use information that is neither Personal Data nor PHI&nbsp;(including non-PHI Personal Data that has been de-identified and/or aggregated)&nbsp;to better understand who uses Ischedulenow and how we can deliver a better digital healthcare experience, or otherwise at our discretion.</p>
+<p><strong>Controlling Your Personal Data &amp; Notifications</strong></p>
+<p>If you are a registered user of the Services, you can modify certain Personal Data or account information by logging in and accessing your account.&nbsp;If you wish to close your account, please email us at&nbsp;<a href="mailto:Privacy@Ischedulenow.com"><strong>Privacy@Ischedulenow.com</strong></a>.&nbsp;Ischedulenow will use reasonable efforts to delete your account as soon as reasonably possible.&nbsp;Please note, however, that Ischedulenow reserves the right to retain information from closed accounts consistent with all internal data retention policies and procedures.</p>
+<p>You must promptly notify us if any of your account data is lost, stolen or used without permission.</p>
+<p><strong>California Rights</strong></p>
+<p>The California Consumer Privacy Act of 2018&nbsp;(&ldquo;CCPA&rdquo;)&nbsp;provides California residents with specific rights regarding their personal information.&nbsp;This section describes your CCPA rights and explains how to exercise those rights.&nbsp;If you have any questions about this section or whether any of the following applies to you, please contact us at&nbsp;<a href="mailto:Consumer-Privacy@Ischedulenow.com?subject=California%20Rights"><strong>Consumer-Privacy@Ischedulenow.com</strong></a>&nbsp;and indicate &ldquo;California Rights&rdquo; in the subject line of your communication.</p>
+<p><strong>Access</strong></p>
+<p>You have the right to request certain information about our collection and use of your Personal Data over the past 12 months, including the following:</p>
+<ul>
+<li>The categories of Personal Data that we have collected about you.</li>
+<li>The categories of sources from which that Personal Data was collected.</li>
+<li>The business or commercial purpose for collecting or selling your Personal Data.</li>
+<li>The categories of third parties with whom we have shared your Personal Data.</li>
+<li>The specific pieces of Personal Data that we have collected about you.</li>
+</ul>
+<p>If we have disclosed your Personal Data for a business purpose over the past 12 months, we will identify the categories of Personal Data shared with each category of third-party recipient.</p>
+<p>If we have sold your Personal Data over the past 12 months, we will identify the categories of Personal Data purchased by each category of third-party recipient.</p>
+<p><strong>Deletion</strong></p>
+<p>You have the right to request that we delete the Personal Data that we have collected from you.&nbsp;Under the CCPA, this right is subject to certain exceptions: for example, we may need to retain your Personal Data to provide you with the Services or complete a transaction or other action you have requested.&nbsp;If your deletion request is subject to one of these exceptions, we may deny your deletion request.</p>
+<p><strong>Exercising Your Rights</strong></p>
+<p>To exercise the rights described above, you must send us a request that&nbsp;(1)&nbsp;provides sufficient information to allow us to verify that you are the person about whom we have collected Personal Data, and&nbsp;(2)&nbsp;describes your request in sufficient detail to allow us to understand, evaluate, and respond to it.&nbsp;Each request that meets both of these criteria will be considered a &ldquo;Valid Request.&rdquo; We may not respond to requests that do not meet these criteria.&nbsp;We will only use Personal Data provided in a Valid Request to verify you and complete your request.&nbsp;You do not need an account to submit a Valid Request.</p>
+<p>We will work to respond to your Valid Request within 45 days of receipt.&nbsp;We will not charge you a fee for making a Valid Request unless your Valid Request(s)&nbsp;is excessive, repetitive, or manifestly unfounded.&nbsp;If we determine that your Valid Request warrants a fee, we will notify you of the fee and explain that decision before completing your request.</p>
+<p>You may submit a Valid Request using the following methods:</p>
+<ul>
+<li>Submitting a request by following the instructions found at&nbsp;<a href="https://www.Ischedulenow.com/privacy-settings"><strong>https://www.Ischedulenow.com/privacy-settings</strong></a></li>
+
+<li>Emailing us at:&nbsp;<a href="mailto:Consumer-Privacy@Ischedulenow.com"><strong>Consumer-Privacy@Ischedulenow.com</strong></a></li>
+</ul>
+<p><strong>Personal Data Sales Opt-Out</strong></p>
+<p>In this section, we use the term &lsquo;sell&rsquo; as it is defined in the CCPA.&nbsp;We sell your Personal Data, subject to your right to opt-out of these sales.</p>
+<p>We sell your Personal Data to the following categories of third parties:</p>
+<ul>
+<li>Advertisers</li>
+</ul>
+<p>Over the past twelve months, we have sold the following categories of your Personal Data to third parties:</p>
+<ul>
+<li>Demographic Data</li>
+<li>Web analytics or other similar network activity information</li>
+</ul>
+<p>You have the right to opt-out of the sale of your Personal Data.&nbsp;You can opt-out using the following methods:</p>
+<ul>
+<li>Submitting a request by following the instructions found at&nbsp;<a href="https://www.Ischedulenow.com/privacy-settings"><strong>https://www.Ischedulenow.com/privacy-settings</strong></a></li>
+<li>Emailing us at:&nbsp;<a href="mailto:Consumer-Privacy@Ischedulenow.com"><strong>Consumer-Privacy@Ischedulenow.com</strong></a></li>
+</ul>
+<p>We do not sell the Personal Data of minors under 16 years of age without affirmative authorization.</p>
+<p><strong>We Will Not Discriminate Against You for Exercising Your Rights Under the CCPA</strong></p>
+<p>We will not discriminate against you for exercising your rights under the CCPA.&nbsp;We will not deny you our goods or services, charge you different prices or rates, or provide you a lower quality of goods and services if you exercise your rights under the CCPA.&nbsp;However, we may offer different tiers of our Services as allowed by applicable data privacy laws&nbsp;(including the CCPA)&nbsp;with varying prices, rates, or levels of quality of the goods or services you receive related to the value of Personal Data that we receive from you.</p>
+<p><strong>Other California Resident Rights</strong></p>
+<p>Under California Civil Code Sections 1798.83-1798.84, California residents are entitled to contact us to prevent disclosure of Personal Data to third parties for such third parties&rsquo; direct marketing purposes; in order to submit such a request, please contact us at&nbsp;<a href="mailto:Consumer-Privacy@Ischedulenow.com"><strong>Consumer-Privacy@Ischedulenow.com</strong></a>.</p>
+<p><strong>Changes to this Privacy Policy</strong></p>
+<p>We reserve the right to amend our Privacy Policy at our discretion and at any time.&nbsp;When we make changes to the Privacy Policy, we will notify you by email or through a notice on our website homepage.&nbsp;Use of the information we collect is subject to the Privacy Policy in effect at the time such information is collected.</p>
+<p><strong>Contact Information</strong></p>
+<p>If you have any questions or comments about this Privacy Policy, the ways in which we collect and use your Personal Data, your choices and rights regarding such use, please do not hesitate to contact us at:</p>
+<ul>
+<li>Email:&nbsp;<a href="mailto:Privacy@Ischedulenow.com"><strong>Privacy@Ischedulenow.com</strong></a></li>
+<li>Address: Ischedulenow, New York</li>
+
+</ul>
+
+	  </div>
+      
+      <!-- /col -->
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+
+
+  <!--content -->
+
+</main>
+
+
+<app-footer></app-footer>
+<!--/footer-->
+
+<div id="toTop"></div>
+<!-- Back to top button -->
+
+<!-- COMMON SCRIPTS -->

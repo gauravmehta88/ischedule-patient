@@ -1,0 +1,221 @@
+<toaster-container [toasterconfig]="config">
+</toaster-container>
+
+<div class="layer">
+</div>
+<!-- Mobile menu overlay mask -->
+
+<div id="preloader" *ngIf="loading">
+  <div data-loader="circle-side"></div>
+</div>
+<!-- End Preload -->
+<app-header *ngIf="!isloggedin"></app-header>
+<app-headerafterlogin *ngIf="isloggedin"></app-headerafterlogin>
+
+<!-- /header -->
+
+
+<main>
+  <div id="results">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h4>
+            <strong>Showing {{recordCount}}</strong> of {{count}} results</h4>
+        </div>
+        <div class="col-md-8">
+
+
+          <div class="row ">
+            <div class="col-lg-2 col-md-2 col-sm-12 p-0"></div>
+            <div class="col-lg-4 col-md-4 col-sm-12 p-0">
+              <input type="text" class="form-control search-slt" [(ngModel)]="nametosearch" placeholder="Doctor Name">
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 p-0">
+              <input type="text" class="form-control search-slt" [(ngModel)]="zip" placeholder="Zip Code ">
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-12 p-0">
+              <button (click)="pageNo=1; getDoctorList()" type="button" class="btn seach-btn wrn-btn">Search</button>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <!-- /row -->
+    </div>
+    <!-- /container -->
+  </div>
+  <!-- /results -->
+
+  <div class="filters_listing">
+    <div class="container">
+      <div class="row ">
+        <ul class="clearfix ">
+          <li>
+            <h6>Insurance</h6>
+            <select id="selectInsurance" [(ngModel)]="insurance" title="Insurance " class="selectpicker" data-live-search="true " data-width="120px ">
+              <option value="">default</option>
+
+              <option *ngFor="let insurance of allInsurances" value="{{insurance._id}}">{{insurance.displayName}}</option>
+
+            </select>
+          </li>
+
+
+          <li>
+            <h6>Specialties</h6>
+            <select [(ngModel)]="speciality" class="selectpicker" title="Specialties " data-live-search="true " data-width="120px ">
+              <option value="">default</option>
+
+              <option *ngFor="let sp of allSpecialities" value="{{sp._id}}">{{sp.displayName}}</option>
+
+            </select>
+          </li>
+          <li>
+            <h6>Gender</h6>
+            <select [(ngModel)]="gender" class="selectpicker " title="Gender " data-width="95px ">
+              <option value="">default</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </li>
+          <li>
+            <h6>Languages</h6>
+            <select [(ngModel)]="language" class="selectpicker " title="Languages " data-width="120px ">
+              <option value="">default</option>
+              <option value="English">English</option>
+              <option value="Hindi">Hindi</option>
+            </select>
+          </li>
+
+          <li>
+            <h6>Sort by</h6>
+            <select [(ngModel)]="rating" class="selectpicker " title="Sort by " data-width="115px ">
+              <option value="">default order</option>
+              <option value="rating">Rating</option>
+            </select>
+          </li>
+
+
+
+          <li class=" ">
+            <h6>Select Location</h6>
+            <div>
+              <div class="ui-widget">
+                <label for="searchBox">
+                  Search:
+                </label>
+                <input id="searchBox" />
+              </div>
+              <div id="searchResult" class="ui-widget" style="margin-top: 1em;">
+              </div>
+            </div>
+          </li>
+
+          <li class="hide" style="display:none">
+            <h6>Date</h6>
+            <div class="form-group">
+              <input class="form-control" type="text" id="booking_date" data-lang="en" data-min-year="2017" data-max-year="2021" data-disabled-days="10/17/2017,11/18/2017">
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- /container -->
+  </div>
+
+  <div class="container margin_60_35 ">
+    <div class="row ">
+      <div class="col-lg-12 ">
+        <div class="strip_list wow fadeIn" *ngIf="noData">
+          No Data Found
+        </div>
+        <div class="strip_list wow fadeIn " *ngFor="let doctor of allDoctors ">
+          <!-- <a href="javascript:void(); " class="wish_bt "></a> -->
+          <figure>
+            <a routerLink="/patient/doctorDetail/{{ doctor._id }} ">
+              <img *ngIf="!doctor.profilePicPath " src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaio77_lSjjRsEQNoeSphgSURXg6Tde1rgJi1frZR2cAyHGoPq "
+              />
+              <img *ngIf="doctor.profilePicPath " src="{{doctor.profilePicPath}} " alt="profile-image ">
+            </a>
+          </figure>
+          <small> {{ doctor.designation }}</small>
+          <h3>
+            <a routerLink="/patient/doctorDetail/{{ doctor._id }} "> Dr.&nbsp;{{ doctor.firstName }} &nbsp;{{ doctor.lastName }} </a>
+          </h3>
+          <p class="three-line-only"> {{doctor.aboutme}}</p>
+          <span class="rating ">Rating
+            <i class="icon_star voted " *ngFor="let rating of arrayOne(doctor.average_rating) "></i>
+
+            <span class="ml-4" *ngIf="doctor.profileViews">views ({{ doctor.profileViews }}) </span>
+          </span>
+
+          <!-- Start date slot-->
+          <!-- <div class="col-lg-12 col-md-12 time-slot">
+
+
+            <ul class="time_select add_top_20">
+              <div class="color-o">{{dateOfAppointment}}</div>
+              <li>
+                <input (click)="slotSelected('09.30am',doctor)" type="radio" id="radio1" name="radio_time" value="09.30am">
+                <label for="radio1">09.30am</label>
+              </li>
+
+            </ul>
+          </div> -->
+
+          <!-- Start End slot-->
+
+          <ul>
+            <li>
+              <a href="javascript:void(); " onclick="onHtmlClick( 'Doctors', 0) " class="btn_listing ">View on Map</a>
+            </li>
+            <li>
+              <a href="https://www.google.com/maps/dir//{{doctor.address}} " target="_blank ">Directions</a>
+            </li>
+            <li>
+              <a routerLink="/patient/doctorDetail/{{ doctor._id }} ">Book now</a>
+            </li>
+          </ul>
+        </div>
+        <!-- /strip_list -->
+
+
+        <nav aria-label=" " class="add_top_20 " *ngIf="!noData">
+          <ul class="pagination pagination-sm ">
+            <li class="page-item disabled previous ">
+              <a class="page-link " (click)="previous() " tabindex="-1 ">Previous</a>
+            </li>
+            <li class="page-item pitem " [ngClass]="(i==0?'active':'')" *ngFor="let pageNumber of arrayOne(pageCount);let i=index;">
+              <a class="page-link " (click)="searchDoctor(i+1) ">{{(i+1)}}</a>
+            </li>
+
+            <li class="page-item next ">
+              <a class="page-link " (click)="next() ">Next</a>
+            </li>
+          </ul>
+        </nav>
+        <!-- /pagination -->
+      </div>
+      <!-- /col -->
+
+      <!--<aside class="col-lg-5 " id="sidebar ">
+        <div id="map_listing" class="normal_list ">
+        </div>
+      </aside>-->
+      <!-- /aside -->
+
+    </div>
+    <!-- /row -->
+  </div>
+</main>
+<!-- /main content -->
+
+<app-footer></app-footer>
+<!--/footer-->
+
+<div id="toTop "></div>
+<!-- Back to top button -->
+
+<!-- COMMON SCRIPTS -->

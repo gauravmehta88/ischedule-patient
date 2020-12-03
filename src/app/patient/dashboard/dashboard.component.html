@@ -1,0 +1,216 @@
+<toaster-container [toasterconfig]="config"></toaster-container>
+
+<div class="layer">
+
+
+
+</div>
+<!-- Mobile menu overlay mask -->
+
+<div id="preloader" *ngIf="loading">
+  <div data-loader="circle-side"></div>
+</div>
+<!-- End Preload -->
+
+<app-header *ngIf="!isloggedin"></app-header>
+<app-headerafterlogin *ngIf="isloggedin"></app-headerafterlogin>
+
+<!-- /header -->
+
+<main>
+  <div id="breadcrumb">
+    <div class="container">
+      <ul>
+        <li>
+          <a routerLink="/">Home</a>
+        </li>
+
+        <li>Dashboard</li>
+      </ul>
+    </div>
+  </div>
+  <!-- /breadcrumb -->
+
+  <div class="container margin_60">
+
+    <div class="main_title">
+      <h2>Dashboard</h2>
+
+    </div>
+    <div class="row">
+
+      <div class="col-lg-3 col-md-6">
+        <a routerLink="/patient/doctorList" class="box_cat_home">
+
+
+          <span class="pe-7s-search dashboard-icon"></span>
+          <h3>Search Doctor</h3>
+          <ul class="clearfix">
+            <li></li>
+            <li class="color-o">
+              <strong>{{dashboardData?.DoctorsCount}}</strong>Doctors near by you</li>
+          </ul>
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <a routerLink="/appointments" class="box_cat_home">
+
+
+          <span class="pe-7s-date dashboard-icon"></span>
+          <h3>Appointments({{dashboardData?.AppointmentsCount}})</h3>
+        </a>
+      </div>
+
+      <!-- <div class="col-lg-3 col-md-6">
+        <a href="javascript:void();" class="box_cat_home">
+
+
+          <span class="pe-7s-note2 dashboard-icon"></span>
+          <h3>Prescriptions</h3>
+          <ul class="clearfix">
+            <li></li>
+            <li class="color-o">
+              <strong>1</strong>New Prescriptions</li>
+          </ul>
+        </a>
+      </div>-->
+      <div class="col-lg-3 col-md-6">
+        <a routerLink="/patient/documents" class="box_cat_home">
+
+
+          <span class="pe-7s-news-paper dashboard-icon"></span>
+          <h3>Documents</h3>
+          <ul class="clearfix">
+            <li></li>
+            <li class="color-o">
+              <strong>{{dashboardData?.DocumentsCount}}</strong>New Documents</li>
+          </ul>
+        </a>
+      </div>
+
+
+      <div class="col-lg-3 col-md-6">
+        <a routerLink="/patient/healthreport" class="box_cat_home">
+
+
+          <span class="pe-7s-note2 dashboard-icon"></span>
+          <h3>Health Report</h3>
+          <ul class="clearfix">
+            <li></li>
+            <li class="color-o">View</li>
+          </ul>
+
+        </a>
+      </div>
+
+      <!--<div class="col-lg-3 col-md-6">
+        <a routerLink="/patient/bill" class="box_cat_home">
+
+
+          <span class="pe-7s-note2 dashboard-icon"></span>
+          <h3>Bills</h3>
+          <ul class="clearfix">
+            <li></li>
+            <li class="color-o">View</li>
+          </ul>
+
+        </a>
+      </div>-->
+
+      <div class="col-lg-3 col-md-6">
+        <a routerLink="/patient/coupon" class="box_cat_home">
+
+
+          <span class="pe-7s-scissors dashboard-icon"></span>
+          <h3>Coupon</h3>
+          <ul class="clearfix">
+            <li></li>
+            <li class="color-o">View</li>
+          </ul>
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <a routerLink="/patient/chat" class="box_cat_home">
+
+
+          <span class="pe-7s-chat dashboard-icon"></span>
+          <h3>Chat</h3>
+          <ul class="clearfix">
+            <li></li>
+            <li class="color-o">
+              <strong>3</strong>New Chat</li>
+          </ul>
+        </a>
+      </div>
+
+
+
+      <div class="col-lg-3 col-md-6">
+        <a routerLink="/patient/bill" class="box_cat_home">
+
+
+          <span class="pe-7s-cash dashboard-icon"></span>
+          <h3>Billing</h3>
+          <ul class="clearfix">
+            <li></li>
+            <li class="color-o">
+              <strong>1</strong>New Bill</li>
+          </ul>
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <a routerLink="/patient/shareRecords" class="box_cat_home">
+
+
+          <span class="pe-7s-cash dashboard-icon"></span>
+          <h3>Share All Records</h3>
+          <ul class="clearfix">
+            <li></li>
+            <li class="color-o">Shared With
+              <strong>5</strong>Doctors</li>
+          </ul>
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <a routerLink="/patient/profile" class="box_cat_home">
+
+
+          <span class="pe-7s-id dashboard-icon"></span>
+          <h3>Profile</h3>
+          <ul class="clearfix">
+            <li></li>
+            <li class="color-o">View/Edit</li>
+          </ul>
+        </a>
+      </div>
+
+
+      <div class="col-lg-3 col-md-6">
+        <a routerLink="/patient/settings" class="box_cat_home">
+          <span class="pe-7s-settings dashboard-icon"></span>
+          <h3>Setting</h3>
+          <ul class="clearfix">
+            <li></li>
+            <li class="color-o">View/ Edit</li>
+          </ul>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</main>
+<!-- /main content -->
+
+<app-footer></app-footer>
+<!--/footer-->
+
+<div id="toTop"></div>
+<!-- Back to top button -->
+
+<!-- COMMON SCRIPTS -->

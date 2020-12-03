@@ -1,0 +1,59 @@
+<!-- Left Sidebar -->
+<aside id="leftsidebar" class="sidebar">
+  <div class="menu">
+    <ul class="list">
+      <li>
+        <div class="user-info">
+          <div class="image">
+
+            <a href="javascript:void();" id="ancrImage" routerLink="/patient/profile">
+              <img *ngIf="profilePicPath==null" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaio77_lSjjRsEQNoeSphgSURXg6Tde1rgJi1frZR2cAyHGoPq"
+                alt="User" class="img-thumbnail img-fluid" />
+              <img *ngIf="profilePicPath" src="{{profilePicPath}}" alt="User" class="img-thumbnail img-fluid" />
+
+            </a>
+          </div>
+          <div class="detail">
+            <h4>Mr. {{ firstName }} {{ lastName }} </h4>
+            <small></small>
+          </div>
+
+        </div>
+      </li>
+
+      <li [routerLinkActive]="'active'">
+        <a routerLink="/patient/profile" [routerLinkActive]="'active'">
+          <i class="zmdi zmdi-account-o"></i> Patient Profile</a>
+      </li>
+      <li [routerLinkActive]="'active'">
+        <a routerLink="/patient/editPatientProfile" [routerLinkActive]="'active'">
+          <i class="zmdi zmdi-account-o"></i>Edit Patient Profile</a>
+      </li>
+      <li [routerLinkActive]="'active'">
+        <a routerLink="/patient/documents" [routerLinkActive]="'active'">
+          <i class="zmdi zmdi-account-o"></i>Documents</a>
+      </li>
+
+      <li [routerLinkActive]="'active'">
+        <a routerLink="/patient/chat" [routerLinkActive]="'active'">
+          <i class="zmdi zmdi-account-o"></i>Chat</a>
+      </li>
+
+      <li [routerLinkActive]="'active'">
+        <a routerLink="/patient/allCoupons" [routerLinkActive]="'active'">
+          <i class="zmdi zmdi-account-o"></i> All Coupons</a>
+      </li>
+
+      <li [routerLinkActive]="'active'">
+        <a routerLink="/patient/doctorList" [routerLinkActive]="'active'">
+          <i class="zmdi zmdi-account-o"></i>List All Doctors</a>
+      </li>
+
+
+
+
+
+
+    </ul>
+  </div>
+</aside>

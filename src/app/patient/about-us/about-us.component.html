@@ -1,0 +1,131 @@
+<toaster-container [toasterconfig]="config"></toaster-container>
+
+<div class="layer">
+
+
+
+</div>
+<!-- Mobile menu overlay mask -->
+
+<div id="preloader" *ngIf="loading">
+  <div data-loader="circle-side"></div>
+</div>
+<!-- End Preload -->
+
+<app-header *ngIf="!isloggedin"></app-header>
+<app-headerafterlogin *ngIf="isloggedin"></app-headerafterlogin>
+
+<!-- /header -->
+<main>
+  <div id="breadcrumb">
+    <div class="container">
+      <ul>
+        <li>
+          <a routerLink="/">Home</a>
+        </li>
+
+        <li>About us</li>
+      </ul>
+    </div>
+  </div>
+  <!-- /breadcrumb -->
+
+  <!--  content -->
+
+
+
+  <div class="container margin_60">
+
+    <div class="main_title">
+      <h1>About ischedulenow</h1>
+      <p>Welcome to ischedulenow</p>
+    </div>
+    <div class="row justify-content-between">
+      <div class="col-lg-6">
+        <figure class="add_bottom_30">
+          <img src="http://via.placeholder.com/800x450.jpg" class="img-fluid" alt="">
+        </figure>
+      </div>
+      <div class="col-lg-5">
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+          dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+          specimen book. It has survived not only five centuries, but also the leap into electronic.</p>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+          dummy text ever since the
+          <b>1500s, when an unknown printer</b> took a galley of type and scrambled it to make a type specimen book. It has
+          survived not only five centuries</p>
+
+      </div>
+    </div>
+
+
+    <div class="container margin_120_95">
+      <div class="main_title">
+        <h2>Why Choose ischedulenow</h2>
+        <p>Welcome to ischedulenow</p>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <a class="box_feat_about" href="#0">
+            <i class="pe-7s-id"></i>
+            <h3>+ 5575 Doctors</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <a class="box_feat_about" href="#0">
+            <i class="pe-7s-date"></i>
+            <h3>Instant Booking</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <a class="box_feat_about" href="#0">
+            <i class="pe-7s-credit"></i>
+            <h3>Secure Payments</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <a class="box_feat_about" href="#0">
+            <i class="pe-7s-scissors"></i>
+            <h3>Coupons</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+              </p>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <a class="box_feat_about" href="#0">
+            <i class="pe-7s-chat"></i>
+            <h3> Chat</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+              </p>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <a class="box_feat_about" href="#0">
+            <i class="pe-7s-help2"></i>
+            <h3>Save Prescriptions/ Documents</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+              </p>
+          </a>
+        </div>
+      </div>
+      <!--/row-->
+    </div>
+  </div>
+
+
+  <!--content -->
+
+</main>
+
+<app-footer></app-footer>
+<!--/footer-->
+
+<div id="toTop"></div>
+<!-- Back to top button -->
+
+<!-- COMMON SCRIPTS -->

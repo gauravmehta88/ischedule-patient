@@ -1,0 +1,125 @@
+<toaster-container [toasterconfig]="config"></toaster-container>
+
+<div class="layer">
+
+
+
+</div>
+<!-- Mobile menu overlay mask -->
+
+<div id="preloader" *ngIf="loading">
+  <div data-loader="circle-side"></div>
+</div>
+<!-- End Preload -->
+
+<app-header *ngIf="!isloggedin"></app-header>
+<app-headerafterlogin *ngIf="isloggedin"></app-headerafterlogin>
+
+<!-- /header -->
+
+<main>
+  <div id="breadcrumb">
+    <div class="container">
+      <ul>
+        <li>
+          <a routerLink="/">Home</a>
+        </li>
+		 <li>
+                    <a routerLink="/dashboard">Dashboard</a>
+                </li>
+
+        <li>Settings</li>
+      </ul>
+    </div>
+  </div>
+  <!-- /breadcrumb -->
+
+  <div class="container margin_60">
+    <div class="row">
+
+      <div class="col-xl-12 col-lg-12">
+
+
+        <div class="box_general_3 cart">
+
+          <div class="main_title_4">
+            <h3>
+              <i class="icon_circle-slelected"></i>Send Appointment Reminder by</h3>
+          </div>
+
+
+
+
+
+          <div class="">
+            <div class="row">
+              <div class="col-md-6 col-sm-6">
+                <div class="radio-holder text-left ">
+                  <label class="radio-inline mx-2">
+                    <input type="radio" [(ngModel)]="option" value="Email" name="optradio" checked> By Email</label>
+                  <label class="radio-inline mx-2">
+                    <input type="radio" [(ngModel)]="option" value="Sms" name="optradio"> By SMS </label>
+                  <label class="radio-inline mx-2">
+                    <input type="radio" [(ngModel)]="option" value="Both" name="optradio"> Both </label>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div class="main_title_4 mt10">
+            <h3>
+              <i class="icon_circle-slelected"></i>Send Appointment Reminder before</h3>
+          </div>
+          <div class="">
+            <div class="row">
+              <div class="col-md-6 col-sm-6">
+                <div class="form-group">
+                  <label>Time</label>
+                  <select [(ngModel)]="time" class="form-control" name="country_register" id="country_register">
+                    <option value="2 Hours">2 Hours</option>
+                    <option value="4 Hours">4 Hours</option>
+                    <option value="8 Hours">8 Hours</option>
+                    <option value="12 Hours">12 Hours</option>
+                    <option value="1 Day">1 Day</option>
+                    <option value="2 Days">2 Days</option>
+                  </select>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <hr>
+          <!--End step -->
+
+          <a href="javascript:void();" (click)="submit()" class="btn_1">Submit</a>
+
+
+
+
+        </div>
+
+
+
+        <!-- /box_general -->
+
+
+        <!-- /tabs_styled -->
+      </div>
+      <!-- /col -->
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</main>
+<!-- /main -->
+
+
+<app-footer></app-footer>
+<!--/footer-->
+
+<div id="toTop"></div>
+<!-- Back to top button -->
+
+<!-- COMMON SCRIPTS -->

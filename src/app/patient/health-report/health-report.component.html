@@ -1,0 +1,97 @@
+<toaster-container [toasterconfig]="config">
+
+
+
+
+</toaster-container>
+
+<div class="layer">
+
+
+
+</div>
+<!-- Mobile menu overlay mask -->
+
+<div id="preloader" *ngIf="loading">
+  <div data-loader="circle-side"></div>
+</div>
+<!-- End Preload -->
+
+<app-header *ngIf="!isloggedin"></app-header>
+<app-headerafterlogin *ngIf="isloggedin"></app-headerafterlogin>
+<main>
+  <div id="breadcrumb">
+    <div class="container">
+      <ul>
+        <li>
+          <a routerLink="/">Home</a>
+        </li>
+        <li>
+          <a routerLink="/dashboard">Dashboard</a>
+        </li>
+
+
+        <li> Health Report</li>
+      </ul>
+    </div>
+  </div>
+  <!-- /breadcrumb -->
+  <div class="container margin_60">
+    <div class="row">
+      <!-- /asdide -->
+      <div class="col-xl-12 col-lg-12">
+        <div class="box_general_2 add_bottom_45">
+          <div class="main_title_4">
+            <h3>
+              <i class="icon_circle-slelected"></i>Reports</h3>
+          </div>
+          <div class="col-xl-12 col-lg-12">
+            <ul class="bullets">
+              <div *ngIf="documents.length==0">
+              </div>
+
+
+              <div *ngFor="let doc of documents">
+                <li *ngIf="doc.docType=='Report'">
+                  <a href="{{doc.url}}" target="_blank">{{doc.title}} </a>
+                </li>
+              </div>
+            </ul>
+          </div>
+          <hr>
+          <div class="main_title_4">
+            <h3>
+              <i class="icon_circle-slelected"></i>Letter</h3>
+          </div>
+          <div class="col-xl-12 col-lg-12">
+            <ul class="bullets">
+              <div *ngIf="documents.length==0">
+              </div>
+              <div *ngFor="let doc of documents">
+                <li *ngIf="doc.docType=='Letter'">
+                  <a href="{{doc.url}}" target="_blank">{{doc.title}} </a>
+                </li>
+              </div>
+            </ul>
+          </div>
+          <hr>
+        </div>
+        <!-- /box_general -->
+        <!-- /tabs_styled -->
+      </div>
+      <!-- /col -->
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</main>
+
+
+
+<app-footer></app-footer>
+<!--/footer-->
+
+<div id="toTop"></div>
+<!-- Back to top button -->
+
+<!-- COMMON SCRIPTS -->

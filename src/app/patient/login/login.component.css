@@ -1,0 +1,14 @@
+.error {
+  text-align: left;
+  font-size: 11px;
+  display: block;
+  width: 100%;
+  padding-left: 15px;
+  color: #00bcd4 !important;
+}
+
+.input-group,
+.form-group {
+  margin-bottom: 5px;
+  margin-top: 10px;
+}

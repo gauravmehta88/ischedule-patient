@@ -1,0 +1,328 @@
+<toaster-container [toasterconfig]="config"></toaster-container>
+
+<div class="layer">
+
+
+
+</div>
+<!-- Mobile menu overlay mask -->
+
+<div id="preloader" *ngIf="loading">
+  <div data-loader="circle-side"></div>
+</div>
+<!-- End Preload -->
+
+<app-header *ngIf="!isloggedin"></app-header>
+<app-headerafterlogin *ngIf="isloggedin"></app-headerafterlogin>
+
+
+
+<!-- /header -->
+<main>
+  <div id="breadcrumb">
+    <div class="container">
+
+      <ul>
+        <li>
+          <a routerLink="/">Home</a>
+        </li>
+        <li>
+          <a routerLink="/dashboard">Dashboard</a>
+        </li>
+        <li>Appointments</li>
+      </ul>
+    </div>
+  </div>
+  <!-- /breadcrumb -->
+
+  <div class="container margin_60">
+
+    <div class="row">
+
+
+
+      <div class="tabs_styled_2">
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="upcoming-appointments" data-toggle="tab" href="#upcoming" role="tab" aria-controls="book">Upcoming Appointments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="previous-appointments" data-toggle="tab" href="#previous" role="tab" aria-controls="previous" aria-expanded="true">Previous Appointments</a>
+          </li>
+
+        </ul>
+        <!--/nav-tabs -->
+
+        <div class="tab-content">
+
+
+
+
+          <div class="tab-pane fade show active" id="upcoming" role="tabpanel" aria-labelledby="upcoming-appointments">
+            <div *ngIf="upcomingappointments.length==0">No data</div>
+
+            <div class="strip_list wow fadeIn" *ngFor="let appointment of upcomingappointments">
+              <figure class="text-center">
+                <span class="pe-7s-note2 dashboard-icon"></span>
+              </figure>
+              <h3>Appointment With
+                <a routerLink="/doctorDetail/{{appointment.doctor_id._id}}">Dr. {{appointment.doctor_id.firstName}} &nbsp; {{appointment.doctor_id.lastName}}</a> on {{appointment.appointmentForDate
+                | date}} at {{appointment.appointmentForTime}}</h3>
+              <p>
+                <i class="icon-location-2 text-color-o"></i>
+                <b> Dr. Address</b> : {{appointment.doctor_id.address}}
+                <br>
+                <i class="icon-phone-3 text-color-o"></i>
+                <b> Dr. Phone Number</b> : {{appointment.doctor_id.mobileNumber}} </p>
+
+
+              <ul>
+                <li>
+                  <a href="https://www.google.com/maps/dir//{{appointment.doctor_id.address}}" target="_blank">
+                    <i class="icon-direction-2"></i> Get Directions</a>
+                </li>
+                <li>
+                  <a (click)="rescheduleAppointment(appointment._id,appointment.doctor_id._id)">
+                    <i class="icon-arrows-cw"></i> Reschedule appointment</a>
+                </li>
+                <li>
+                  <a routerLink="/chat">
+                    <i class="icon-chat"></i> Chat</a>
+                </li>
+                <!--<li>
+                  <a href="detail-page.html">
+                    <i class="icon-calendar-empty"></i> Add to Calendar</a>
+                </li>-->
+                <li>
+                  <a (click)="cancelAppointment(appointment._id)">Cancel This Appointment</a>
+                </li>
+              </ul>
+            </div>
+
+
+          </div>
+
+          <!-- /tab_1 -->
+
+          <div class="tab-pane fade" id="previous" role="tabpanel" aria-labelledby="previous-appointments">
+
+
+
+            <div *ngIf="previousappointments.length==0">No data</div>
+            <div class="strip_list wow fadeIn" *ngFor="let appointment of previousappointments">
+              <figure class="text-center">
+                <span class="pe-7s-note2 dashboard-icon"></span>
+              </figure>
+              <h3>Appointment With
+                <a routerLink="/doctorDetail/appointment.doctor_id._id">Dr. {{appointment.doctor_id.firstName}} &nbsp; {{appointment.doctor_id.lastName}}</a> on {{appointment.appointmentForDate
+                | date}} at {{appointment.appointmentForTime}}</h3>
+              <p>
+                <i class="icon-location-2 text-color-o"></i>
+                <b> Dr. Address</b> : {{appointment.doctor_id.address}}
+                <br>
+                <i class="icon-phone-3 text-color-o"></i>
+                <b> Dr. Phone</b> : {{appointment.doctor_id.mobileNumber}} </p>
+
+
+              <ul>
+                <li>
+                  <a href="https://www.google.com/maps/dir//{{appointment.doctor_id.address}}" target="_blank">
+                    <i class="icon-direction-2"></i> Get Directions</a>
+                </li>
+
+                <li>
+                  <a routerLink="/chat">
+                    <i class="icon-chat"></i> Chat</a>
+                </li>
+                <li>
+                  <a (click)="viewInvoice(appointment)" data-toggle="modal" data-target="#view-invoice">
+                    <i class="icon-doc-text"></i> Invoice</a>
+                  <span class="text-color-o"> {{appointment.invoices.status}}</span>
+                </li>
+                <li>
+                  <a data-toggle="modal" (click)="viewPrec(appointment)" data-target="#view-prescription">View Prescription</a>
+                </li>
+              </ul>
+            </div>
+
+
+
+
+          </div>
+          <!-- /tab_2 -->
+
+
+        </div>
+        <!-- /tab-content -->
+      </div>
+
+
+      <!-- /asdide -->
+
+
+      <!-- /col -->
+    </div>
+    <!-- /row -->
+
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</main>
+<!-- /main -->
+<!-- 2020 start -->
+
+<!-- View Prescription Modal Start-->
+<!-- The Modal -->
+<!-- view-prescription Start -->
+<div class="modal fade" id="view-prescription" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="title" id="largeModalLabel">Prescription</h4>
+      </div>
+      <div class="modal-body">
+
+
+
+        <div class="body">
+
+
+          <div class="row" *ngFor="let precri of prescriptionDetails.presc">
+
+            <div class="col-md-12">
+              <h5>{{precri.prescriptionTitle}} </h5>
+              <b> Medication type :</b> {{precri.medicationType}}
+              <b> UOM :</b> {{precri.uom}}
+              <b> Prescription Description :</b> {{precri.prescriptionDescription}}
+
+
+
+
+            </div>
+          </div>
+          <hr>
+
+          <hr>
+          <div class="row">
+            <div class="col-md-12">
+              <h5>Note</h5>
+              <p>{{prescriptionDetails.prescriptionNote}}</p>
+            </div>
+            <div class="col-md-12">
+              <h5>Pharmacy Detail</h5>
+              <p>{{prescriptionDetails.pharmacyDetail}}</p>
+            </div>
+
+          </div>
+          <hr>
+
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-default btn-round waves-effect">EDIT</button> -->
+        <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">CLOSE</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- view-prescription End -->
+
+
+
+<!-- View-invoice Start -->
+<div class="modal fade" id="view-invoice" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="title" id="largeModalLabel">View Invoice</h4>
+      </div>
+      <div class="modal-body" *ngIf="invoiceDetail">
+
+
+
+        <div class="pt20">
+          <div class="row">
+            <div class="col-sm-2">Cost : ${{getInvoiceCost(invoiceDetail)}}</div>
+            <div class="col-sm-3"> Date : {{invoiceDetail.dueDate | date}}</div>
+            <div class="col-sm-2">
+              <span class="badge bg-orange">{{invoiceDetail.status}}</span>
+            </div>
+          </div>
+          <div class="row">
+
+            <div class="col-md-6 col-sm-6 text-right">
+              <p class="m-b-0">
+                <strong>Order Date: </strong> {{invoiceDetail.dueDate | date}}</p>
+              <p class="m-b-0">
+                <strong>Order Status: </strong>
+                <span class="badge bg-orange">{{invoiceDetail.status}}</span>
+              </p>
+              <p>
+            </div>
+          </div>
+          <div class="mt-40"></div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Description</th>
+
+                      <th>Cost</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let billItem of invoiceDetail.billItems;let i=index;">
+                      <td>{{(i+1)}}</td>
+                      <td> {{billItem.description}}
+                      </td>
+                      <td>${{billItem.cost}}</td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-6">
+              <h5>Note</h5>
+              <p>{{invoiceDetail.notes}}</p>
+            </div>
+
+            <div class="col-md-6 text-right">
+              <p>
+                <b>Sub-total:</b> ${{getInvoiceSubTotal(invoiceDetail)}}</p>
+              <p>Discount: {{invoiceDetail.discount}}%</p>
+              <p>VAT: {{invoiceDetail.tax}}%</p>
+            </div>
+          </div>
+          <hr>
+
+        </div>
+
+      </div>
+      <div class="modal-body" *ngIf="!invoiceDetail">No Data</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-round waves-effect">Submit </button>
+        <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">CLOSE</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- View-invoice end -->
+
+
+<!-- 2020 end -->
+<app-footer></app-footer>
+<!--/footer-->
+
+<div id="toTop"></div>
+<!-- Back to top button -->
+
+<!-- COMMON SCRIPTS -->

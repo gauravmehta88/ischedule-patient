@@ -1,0 +1,394 @@
+<toaster-container [toasterconfig]="config"></toaster-container>
+
+<div class="layer">
+
+
+
+</div>
+<!-- Mobile menu overlay mask -->
+
+<div id="preloader" *ngIf="loading">
+  <div data-loader="circle-side"></div>
+</div>
+<!-- End Preload -->
+
+<app-header *ngIf="!isloggedin"></app-header>
+<app-headerafterlogin *ngIf="isloggedin"></app-headerafterlogin>
+<!-- /header -->
+
+<main>
+  <div id="breadcrumb">
+    <div class="container">
+      <ul>
+        <li>
+          <a routerLink="/">Home</a>
+        </li>
+        <li>
+          <a routerLink="/patient/doctorList">All Doctors</a>
+        </li>
+        <li>Doctor Profile</li>
+      </ul>
+    </div>
+  </div>
+  <!-- /breadcrumb -->
+
+  <div class="container margin_60">
+    <div class="row">
+      <div class="col-xl-8 col-lg-8">
+        <nav id="secondary_nav">
+          <div class="container">
+            <ul class="clearfix">
+
+            </ul>
+          </div>
+        </nav>
+        <div id="section_1">
+          <div class="box_general_3">
+            <div class="profile">
+              <div class="row">
+                <div class="col-lg-5 col-md-4">
+                  <figure>
+
+
+                    <img *ngIf="profilePicPath" src="{{profilePicPath}}" class="img-fluid" />
+                    <img *ngIf="!profilePicPath" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaio77_lSjjRsEQNoeSphgSURXg6Tde1rgJi1frZR2cAyHGoPq"
+                      class="img-fluid" />
+                  </figure>
+                </div>
+                <div class="col-lg-7 col-md-8">
+                  <small>{{ designation }}</small>
+                  <h1>DR.{{ firstName }} &nbsp;{{ lastName }}</h1>
+                  <span class="rating"> Rating
+                    <i class="icon_star voted" *ngFor="let rating of arrayOne(doctorData.average_rating)"></i>
+
+                     <small *ngIf="reviewCount">({{reviewCount}})</small>
+                    
+                  </span>
+                  <ul class="statistic">
+                    <li>{{profileViews}} Views</li>
+
+                  </ul>
+                  <ul class="contacts">
+                    <li>
+                      <h6>Address</h6>
+                      {{ address }}
+                      <a href="https://www.google.com/maps/dir//  {{ address }}" target="_blank">
+                        <strong>View on map</strong>
+                      </a>
+                    </li>
+                    <li>
+                      <h6>Phone</h6>
+                      <a href="tel://000434323342">{{mobileNumber}}</a>
+
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <hr>
+
+
+
+            <!-- /profile -->
+            <div class="indent_title_in">
+              <i class="pe-7s-user"></i>
+              <h3>Professional statement</h3>
+              <p></p>
+            </div>
+            <div class="wrapper_indent">
+
+              <h6>{{aboutme}}</h6>
+
+              <!-- /row-->
+            </div>
+            <!-- /wrapper indent -->
+
+            <hr>
+
+            <!-- /profile -->
+            <div class="indent_title_in">
+              <i class="pe-7s-user"></i>
+              <h3>Specializations</h3>
+              <p></p>
+            </div>
+            <div class="wrapper_indent">
+
+              <h6></h6>
+              <div class="row">
+                <div class="col-lg-6">
+                  <ul class="bullets">
+                    <li *ngFor="let specialty of specialityids">{{specialty.displayName}}</li>
+
+                  </ul>
+                </div>
+
+              </div>
+              <!-- /row-->
+            </div>
+            <!-- /wrapper indent -->
+
+            <hr>
+
+
+            <div class="indent_title_in">
+              <i class="pe-7s-user"></i>
+              <h3>Education</h3>
+              <p></p>
+            </div>
+            <div class="wrapper_indent">
+
+              <h6>{{eduAndTraining}}</h6>
+
+            </div>
+            <!-- /wrapper indent -->
+
+            <hr>
+
+            <div class="indent_title_in">
+              <i class="pe-7s-news-paper"></i>
+              <h3>Insurances</h3>
+              <p></p>
+            </div>
+            <div class="wrapper_indent">
+
+              <h6></h6>
+              <ul class="list_edu">
+                <li *ngFor="let insurance of selectedInsurances">
+                  <strong>{{insurance.displayName}}</strong>
+                </li>
+
+              </ul>
+            </div>
+            <!--  End wrapper indent -->
+            <hr>
+
+            <div class="indent_title_in">
+              <i class="pe-7s-news-paper"></i>
+              <h3>Award And Publication</h3>
+              <p></p>
+            </div>
+            <div class="wrapper_indent">
+
+              <h6>{{doctorData.awardAndPublication}}</h6>
+
+            </div>
+
+            <hr>
+
+            <div class="indent_title_in">
+              <i class="pe-7s-news-paper"></i>
+              <h3>Languages Speak</h3>
+              <p></p>
+            </div>
+            <div class="wrapper_indent">
+
+              <h6></h6>
+              <ul class="list_edu">
+                <li *ngFor="let langauge of doctorData.languagesSpeak">
+                  <strong>{{langauge}}</strong>
+                </li>
+
+              </ul>
+            </div>
+
+            <hr>
+
+            <div class="indent_title_in">
+              <i class="pe-7s-news-paper"></i>
+              <h3>Office Address</h3>
+              <p>{{doctorData.officeLocationAddress}}</p>
+            </div>
+
+            <hr>
+
+            <div class="indent_title_in">
+              <i class="pe-7s-news-paper"></i>
+              <h3>Board Certification</h3>
+              <p>{{doctorData.boardCertification}}</p>
+            </div>
+
+
+
+
+
+            <!--  /wrapper_indent -->
+          </div>
+          <!-- /section_1 -->
+        </div>
+        <!-- /box_general -->
+
+        <div id="section_2" style="display:block">
+          <div class="box_general_3">
+            <div class="reviews-container">
+              <div class="row">
+                <div class="col-lg-3">
+                  <div id="review_summary">
+                    <strong>{{doctorData.average_rating}}</strong>
+                    <div class="rating">
+                      <i class="icon_star voted" *ngFor="let rating of arrayOne(doctorData.average_rating)"></i>
+
+                    </div>
+                    <small>Based on {{reviewCount }} reviews</small>
+                  </div>
+                </div>
+                <div class="col-lg-9">
+                  <div class="row">
+                    <div class="col-lg-10 col-9">
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" [style.width.%]=fiveStarRating aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 col-3">
+                      <small>
+                        <strong>5 stars</strong>
+                      </small>
+                    </div>
+                  </div>
+                  <!-- /row -->
+                  <div class="row">
+                    <div class="col-lg-10 col-9">
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" [style.width.%]=fourStarRating aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 col-3">
+                      <small>
+                        <strong>4 stars</strong>
+                      </small>
+                    </div>
+                  </div>
+                  <!-- /row -->
+                  <div class="row">
+                    <div class="col-lg-10 col-9">
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" [style.width.%]=threeStarRating aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 col-3">
+                      <small>
+                        <strong>3 stars</strong>
+                      </small>
+                    </div>
+                  </div>
+                  <!-- /row -->
+                  <div class="row">
+                    <div class="col-lg-10 col-9">
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" [style.width.%]=twoStarRating aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 col-3">
+                      <small>
+                        <strong>2 stars</strong>
+                      </small>
+                    </div>
+                  </div>
+                  <!-- /row -->
+                  <div class="row">
+                    <div class="col-lg-10 col-9">
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" [style.width.%]=oneStarRating aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 col-3">
+                      <small>
+                        <strong>1 stars</strong>
+                      </small>
+                    </div>
+                  </div>
+                  <!-- /row -->
+                </div>
+              </div>
+              <!-- /row -->
+
+              <hr>
+
+              <div class="review-box clearfix" *ngFor="let review of doctorData.Reviews">
+                <figure class="rev-thumb">
+                  <img src=" {{review.written_by.profilePicPath}}" alt="">
+                </figure>
+                <div class="rev-content">
+                  <div class="rating">
+
+                    <i class="icon_star voted" *ngFor="let rating of arrayOne(review.ratingGiven)"></i>
+
+                  </div>
+                  <div class="rev-info">
+                    {{review.written_by.firstName}} – {{review.created_on | date}}:
+                  </div>
+                  <div class="rev-text">
+                    <p>
+                      {{review.review}}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- End review-box -->
+
+
+            </div>
+            <!-- End review-container -->
+            <!-- <hr> -->
+            <div class="text-right">
+              <a routerLink="/patient/reviewDoctor/{{doctorId}}" class="btn_1">Submit review</a>
+            </div>
+          </div>
+        </div>
+        <!-- /section_2 -->
+      </div>
+      <!-- /col -->
+      <aside class="col-xl-4 col-lg-4" id="sidebar">
+        <div class="box_general_3 booking">
+          <form>
+            <div class="title">
+              <h3>Book a Visit</h3>
+              <!--<small>Monday to Friday 09.00am-06.00pm</small>-->
+
+            </div>
+            <div class="row">
+              <div class="">
+                <div class="form-group">
+
+                  <input [minDate]="minDate" type="text" id="booking_date" class="datetimepicker form-control slot-book-button" placeholder="Please choose date of appointment."
+                    [bsValue]="bsValue" bsDatepicker (bsValueChange)="onDateValueChange($event)">
+
+                </div>
+              </div>
+
+              <button (click)="searchSlots()" type="submit" id="submit" class="btn_1 slot-book-button"> Find Slots</button>
+            </div>
+            <!-- /row -->
+            <div class="row">
+              <ul class="time_select version_2 add_top_10">
+
+                <li *ngFor="let slot of slotArray;let i=index;">
+                  <input (click)="selectSlot(slot)" type="radio" id="radio{{i}}" name="radio_time" value={{slot}}>
+                  <label for="radio{{i}}">{{slot}}</label>
+                </li>
+                <p *ngIf="slotArray.length==0">No slots Available</p>
+
+              </ul>
+            </div>
+
+            <hr>
+            <a (click)="bookAppointment()" class="btn_1 full-width">Book Now</a>
+          </form>
+        </div>
+        <!-- /box_general -->
+      </aside>
+      <!-- /asdide -->
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</main>
+<!-- /main content -->
+
+<app-footer></app-footer>
+<!--/footer-->
+
+<div id="toTop"></div>
+<!-- Back to top button -->
+
+<!-- COMMON SCRIPTS -->

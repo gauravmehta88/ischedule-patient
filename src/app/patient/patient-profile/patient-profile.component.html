@@ -1,0 +1,439 @@
+<!-- Page Loader -->
+<toaster-container [toasterconfig]="config"></toaster-container>
+
+<div class="page-loader-wrapper" *ngIf="false">
+  <div class="loader">
+    <div class="m-t-30">
+      <img class="zmdi-hc-spin" src="assets/images/logo.png" width="48" height="48" alt="Healthcare" />
+    </div>
+    <p>Please wait...</p>
+  </div>
+</div>
+
+<!-- Overlay For Sidebars -->
+<div class="overlay" *ngIf="false"></div>
+<app-top-bar></app-top-bar>
+<app-side-bar></app-side-bar>
+
+<section class="content profile-page">
+  <div class="block-header">
+    <div class="row">
+      <div class="col-lg-7 col-md-6 col-sm-12">
+        <h2>Patient Profile
+          <small class="text-muted">Welcome {{firstName}} {{middleName}} {{lastName}}</small>
+        </h2>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-12">
+        <button class="btn btn-primary btn-icon btn-round hidden-sm-down float-right m-l-10" type="button">
+          <i class="zmdi zmdi-plus"></i>
+        </button>
+        <ul class="breadcrumb float-md-right">
+          <li class="breadcrumb-item">
+            <a href="index.html">
+              <i class="zmdi zmdi-home"></i> Healthcare</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="javascript:void(0);">Patient</a>
+          </li>
+          <li class="breadcrumb-item active">Patient Profile</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row clearfix">
+      <div class="col-lg-4 col-md-12">
+        <div class="card member-card">
+          <div class="header l-cyan">
+            <h4 class="m-t-10">Mr. {{firstName}} {{middleName}} {{lastName}}</h4>
+          </div>
+          <div class="member-img">
+            <a href="javascript:void();" class="">
+              <img *ngIf="!profilePicPath" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaio77_lSjjRsEQNoeSphgSURXg6Tde1rgJi1frZR2cAyHGoPq"
+                class="rounded-circle" />
+
+              <img *ngIf="profilePicPath" src="{{profilePicPath}}" class="rounded-circle" alt="profile-image">
+            </a>
+          </div>
+          <div class="body">
+            <div class="col-12">
+              <!--<ul class="social-links list-unstyled">
+                              <li>Gynaecologist</li>
+                          </ul>-->
+              <p class="text-muted">Last Visit : 26-1-2019</p>
+
+            </div>
+            <hr>
+            <!--<div class="row">
+                          <div class="col-4">
+                              <h5>852</h5>
+                              <small>Following</small>
+                          </div>
+                          <div class="col-4">
+                              <h5>13k</h5>
+                              <small>Followers</small>
+                          </div>
+                          <div class="col-4">
+                              <h5>234</h5>
+                              <small>Post</small>
+                          </div>                            
+                      </div>-->
+          </div>
+        </div>
+        <div class="card">
+
+
+          <div class="tab-pane body active" id="about">
+
+            <small class="text-muted">First Name: </small>
+            <p>Mr. {{firstName}} </p>
+            <hr>
+            <small class="text-muted">Middle Name: </small>
+            <p>{{middleName}}</p>
+            <hr>
+            <small class="text-muted">Last Name: </small>
+            <p>{{lastName}}</p>
+            <hr>
+            <small class="text-muted">Email address: </small>
+            <p>{{email}}</p>
+            <hr>
+            <small class="text-muted">Address: </small>
+            <p>{{address}}.</p>
+            <hr>
+            <small class="text-muted">Phone: </small>
+            <p>+ {{mobileNumber}}</p>
+
+
+
+          </div>
+
+
+
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-12">
+
+        <div class="card">
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#treatment">Treatment</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#Payment">Payment</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#appointment">Appointment</a>
+            </li>
+
+          </ul>
+        </div>
+
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="treatment">
+            <ul class="cbp_tmtimeline">
+              <li *ngFor="let prescription of prescriontionArray">
+                <time class="cbp_tmtime" datetime="2017-11-04T03:45">
+                  <span>{{prescription.created_on | date:'shortTime'}}</span>
+                  <span class="hidden">{{prescription.created_on | date}}</span>
+                </time>
+                <div class="cbp_tmicon bg-info">
+                  <i class="zmdi zmdi-label"></i>
+                </div>
+                <div class="cbp_tmlabel">
+                  <h2>
+                    <a href="javascript:void(0);">Prescription </a>
+                    <span>{{prescription.title}}</span>
+                  </h2>
+                  <p>{{prescription.description}}</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div role="tabpanel" class="tab-pane " id="Payment">
+
+
+            <div class="container-fluid">
+              <div class="row clearfix">
+
+                <div class="card">
+                  <div class="header">
+                    <h2>
+                      <strong>Invoice</strong>
+                    </h2>
+
+                  </div>
+
+
+
+
+
+
+                  <div class="body">
+                    <div class="row clearfix">
+                      <div class="col-md-12 col-lg-12">
+                        <div class="panel-group" id="accordion_1" role="tablist" aria-multiselectable="true">
+                          <div class="panel panel-primary" *ngFor="let invoiceDetail of invoiceDetails;let i=index;">
+                            <div class="panel-heading" role="tab" id="headingOne_{{i}}">
+                              <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseOne_{{i}}" aria-expanded="true" aria-controls="collapseOne_1">
+                                  <div class="row">
+                                    <div class="col-sm-2">Cost : ${{getInvoiceCost(invoiceDetail)}}</div>
+                                    <div class="col-sm-3"> Date : {{invoiceDetail.dueDate | date}}</div>
+                                    <div class="col-sm-2">
+                                      <span class="badge bg-orange">{{invoiceDetail.status}}</span>
+                                    </div>
+                                  </div>
+                                </a>
+                              </h4>
+                            </div>
+                            <div id="collapseOne_{{i}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne_1">
+                              <div class="panel-body">
+
+                                <h3 class="m-b-0">Invoice Details:
+                                  <strong class="text-primary">#{{invoiceDetail._id}}</strong>
+                                </h3>
+                                <div class="pt20">
+                                  <div class="row">
+                                    <div class="col-md-6 col-sm-6">
+
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 text-right">
+                                      <p class="m-b-0">
+                                        <strong>Order Date: </strong> {{invoiceDetail.dueDate | date}}</p>
+                                      <p class="m-b-0">
+                                        <strong>Order Status: </strong>
+                                        <span class="badge bg-orange">{{invoiceDetail.status}}</span>
+                                      </p>
+                                      <p>
+                                    </div>
+                                  </div>
+                                  <div class="mt-40"></div>
+                                  <div class="row">
+                                    <div class="col-md-12">
+                                      <div class="table-responsive">
+                                        <table class="table table-hover">
+                                          <thead>
+                                            <tr>
+                                              <th>#</th>
+                                              <th>Description</th>
+
+                                              <th>Cost</th>
+
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr *ngFor="let billItem of invoiceDetail.billItems;let in=index">
+                                              <td>{{(in+1)}}</td>
+                                              <td> {{billItem.description}}
+                                              </td>
+                                              <td>${{billItem.cost}}</td>
+                                            </tr>
+
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <hr>
+                                  <div class="row">
+                                    <div class="col-md-6">
+                                      <h5>Note</h5>
+                                      <p>{{invoiceDetail.notes}}</p>
+                                    </div>
+                                    <div class="col-md-6 text-right">
+                                      <p>
+                                        <b>Sub-total:</b> {{getInvoiceSubTotal(invoiceDetail)}}</p>
+                                      <p>Discount: {{invoiceDetail.discount}}%</p>
+                                      <p>VAT: {{invoiceDetail.tax}}%</p>
+                                    </div>
+                                  </div>
+                                  <hr>
+                                  <div class="hidden-print col-md-12 text-right">
+
+                                    <a href="javascript:void(0);" class="btn btn-primary btn-round">Pay</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="tab-content">
+
+                  <div role="tabpanel" class="tab-pane" id="history" aria-expanded="false">
+                    <div class="card" id="details">
+                      <div class="body">
+                        <div class="row">
+
+                          <div class="col-md-6 col-sm-6">
+
+                          </div>
+                          <div class="col-md-6 col-sm-6 text-right">
+                            <p class="m-b-0">
+                              <strong>Order Date: </strong> Jun 15, 2016</p>
+                            <p class="m-b-0">
+                              <strong>Order Status: </strong>
+                              <span class="badge bg-orange">Pending</span>
+                            </p>
+                            <p>
+                              <strong>Order ID: </strong> #123456</p>
+                          </div>
+                        </div>
+                        <div class="mt-40"></div>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="table-responsive">
+                              <table class="table table-striped">
+                                <thead>
+                                  <tr>
+                                    <th>#</th>
+                                    <th>Description</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>1</td>
+                                    <td>Invoice Created</td>
+                                    <td>18 Dec, 2017</td>
+                                    <td>
+                                      <span class="badge badge-default">Panding</span>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>1</td>
+                                    <td>Invoice Sent</td>
+                                    <td>19 Dec, 2017</td>
+                                    <td>
+                                      <span class="badge badge-default">Panding</span>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>1</td>
+                                    <td>Invoice Paid</td>
+                                    <td>20 Dec, 2017</td>
+                                    <td>
+                                      <span class="badge badge-success">Success</span>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+
+
+          <div role="tabpanel" class="tab-pane" id="appointment">
+            <form [formGroup]="patientForm">
+              <div class="card">
+                <div class="header">
+                  <h2>
+                    <strong>Book</strong> appointment</h2>
+                </div>
+                <div class="body">
+
+                  <div class="row clearfix">
+
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <input type="text" class="datetimepicker form-control" placeholder="Please choose date of appointment." bsDatepicker formControlName="dateOfAppointment"
+                          (bsValueChange)="onDateValueChange($event)">
+                      </div>
+                    </div>
+
+
+
+                    <div class="col-sm-4">
+                      <select class="form-control show-tick" formControlName="service" id="drpdownSpeciality">
+                        <option value="">--Select--</option>
+                        <option value="{{ specility._id }}" *ngFor="let specility of allSpecialities">{{ specility.displayName }}</option>
+                      </select>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <select id="searchDoctor" class="browser-default  ">
+                        </select>
+
+                        <!-- <input type="text" id="searchDoctor" class="form-control" placeholder="Search by name"> -->
+                      </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                      <div class="card">
+
+                        <div class="body">
+
+                          <ul class="inbox-widget list-unstyled clearfix">
+                            <li class="inbox-inner">
+                              <div class="inbox-item">
+
+
+                                <div class="row">
+                                  <div *ngFor="let slot of allSlots" class="col-lg-3 col-md-3 col-sm-4 col-xs-12 " (click)="selectSlot(slot)">
+                                    <a class="btn btn-info" href="javascript:void();">{{slot}}</a>
+                                  </div>
+
+
+                                </div>
+                              </div>
+                            </li>
+
+
+
+
+
+
+
+                          </ul>
+
+
+
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="row clearfix">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <textarea rows="4" formControlName="description" class="form-control no-resize" placeholder="Please type what you want..."></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <button type="submit" class="btn btn-primary btn-round" (click)="bookAppointment()">Book Appointment</button>
+                    <button type="submit" class="btn btn-default btn-round btn-simple" (click)="cancelAppointment()">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+          </div>
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
