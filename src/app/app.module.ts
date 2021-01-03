@@ -9,10 +9,6 @@ import { ToasterModule } from "angular2-toaster";
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { TimepickerModule } from "ngx-bootstrap/timepicker";
 
-
-
-
-
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -22,6 +18,7 @@ import { TimepickerModule } from "ngx-bootstrap/timepicker";
     ToasterModule,
     BsDatepickerModule.forRoot(),
     TimepickerModule.forRoot()
+    
   ],
   providers: [ToasterService],
   bootstrap: [AppComponent]

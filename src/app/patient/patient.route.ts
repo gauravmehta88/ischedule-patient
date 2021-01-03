@@ -38,7 +38,10 @@ import { PatientemailverificationComponent } from './patientemailverification/pa
 import { HealthReportComponent } from './health-report/health-report.component';
 import { SettingsComponent } from './settings/settings.component';
 import { BillComponent } from './bill/bill.component';
+import { PayInvoiceComponent } from './pay-invoice/pay-invoice.component';
 import { ShareRecordsComponent } from './share-records/share-records.component';
+import { PayCoupenComponent } from './pay-coupen/pay-coupen.component';
+import { MycoupensComponent } from './mycoupens/mycoupens.component';
 
 export const routes: Routes = [
   {
@@ -54,8 +57,11 @@ export const routes: Routes = [
       { path: "healthreport", component: HealthReportComponent, pathMatch: "full" },
       { path: "settings", component: SettingsComponent, pathMatch: "full" },
       { path: "bill", component: BillComponent, pathMatch: "full" },
+      { path: "pay-invoice/:invoiceId", component: PayInvoiceComponent, pathMatch: "full" },
       { path: "shareRecords", component: ShareRecordsComponent, pathMatch: "full" },
+      { path: "pay-coupen/:coupenId", component: PayCoupenComponent, pathMatch: "full" },
 
+      { path: "myCoupen", component: MycoupensComponent, pathMatch: "full" },
 
       { path: "coupon", component: CoupenComponent, pathMatch: "full" },
       { path: "couponDetail/:id", component: CoupenDetailComponent, pathMatch: "full" },

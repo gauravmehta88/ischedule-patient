@@ -63,7 +63,7 @@ export class PatientemailverificationComponent implements OnInit {
           this.ts.pop(
             "success",
             "Email verified",
-            "Email has been successfully verified! Now you can loggin"
+            "Email has been successfully verified! Now you can login"
           );
           this.ts.pop("success", "Verified", "redirecting in 2 seconds....");
 

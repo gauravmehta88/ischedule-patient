@@ -62,7 +62,7 @@
                             <table class="table table-striped" width="100%">
                                 <thead>
                                     <tr>
-                                        <th>Appointment ID</th>
+                                        <th>Doctor Name</th>
                                         <th>Date</th>
                                         <th>Status </th>
                                         <th>Amount </th>
@@ -72,7 +72,7 @@
                                 <tbody>
                                     <tr *ngFor="let inv of pending">
 
-                                        <td>{{inv._id}}</td>
+                                        <td>{{inv.doctor_id.firstName}} &nbsp; {{inv.doctor_id.lastName}}</td>
                                         <td>{{inv.created_on | date}}</td>
                                         <td>
                                             <span class="badge badge-default">{{inv.status}}</span>
@@ -105,7 +105,7 @@
                             <table class="table table-striped" width="100%">
                                 <thead>
                                     <tr>
-                                        <th>Appointment ID</th>
+                                        <th>Doctor Name</th>
                                         <th>Date</th>
                                         <th>Status </th>
                                         <th>Amount </th>
@@ -116,7 +116,8 @@
 
                                     <tr *ngFor="let inv of generated">
 
-                                        <td>{{inv._id}}</td>
+                                        <td>{{inv.doctor_id.firstName}} &nbsp; {{inv.doctor_id.lastName}}</td>
+
                                         <td>{{inv.created_on | date}}</td>
                                         <td>
                                             <span class="badge badge-default">{{inv.status}}</span>
@@ -239,6 +240,8 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default btn-round waves-effect">Submit </button>
+                <button type="button" class="btn btn-success btn-round waves-effect" *ngIf="invoiceDetail.status=='Generated'" data-dismiss="modal"
+                    (click)="handlePayClick(invoiceDetail.id)">Pay </button>
                 <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">CLOSE</button>
             </div>
         </div>

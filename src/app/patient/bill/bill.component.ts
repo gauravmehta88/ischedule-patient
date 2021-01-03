@@ -42,7 +42,9 @@ export class BillComponent implements OnInit {
     private route: Router) { }
 
   ngOnInit() {
-
+    if (this.cookieService.getItem('_id') != null) {
+      this.isloggedin = true
+    }
     this.getInvoices()
   }
 
@@ -82,12 +84,21 @@ export class BillComponent implements OnInit {
         this.invoices = res.Data;
         console.log(this.invoices)
         this.invoices.filter(res => { })
-        this.generated = this.invoices.filter(word => word.status == 'Generated');
-        this.pending = this.invoices.filter(word => word.status == 'Pending');
+        this.generated = this.invoices.filter(word => word.status == 'Paid');
+        this.pending = this.invoices.filter(word => (word.status == 'Pending' || word.status == 'Generated'));
 
       } else {
         this.ts.pop("error", "", res.Message)
       }
     });
   }
+
+  handlePayClick(id) {
+    console.log('invoice id for fetching details...', this.invoiceDetail._id)
+
+    this.route.navigate(['/pay-invoice/' + this.invoiceDetail._id])
+
+
+  }
+
 }

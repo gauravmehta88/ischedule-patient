@@ -75,8 +75,9 @@ export class CoupenDetailComponent implements OnInit {
   }
 
   arrayOne(n: number): any[] {
+
     n = Math.floor(n)
-    if (n != undefined)
+    if (n && n != undefined)
       return Array(n);
     else
       return []
@@ -120,6 +121,21 @@ export class CoupenDetailComponent implements OnInit {
   viewCoupen(id) {
 
     this.router.navigate(["/patient/viewCoupon/" + id]);
+
+  }
+
+
+  buyCoupen() {
+    if (this.cookieService.getItem("_id"))
+      this.router.navigate(["/patient/pay-coupen/" + this.coupenId]);
+    else {
+      this.ts.pop("error", "", "please login first..")
+
+      setTimeout(() => {
+        this.router.navigate(["/login"]);
+
+      }, 2500);
+    }
 
   }
 

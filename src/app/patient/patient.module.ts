@@ -15,6 +15,9 @@ import { TimepickerModule } from "ngx-bootstrap/timepicker";
 import { HttpModule } from "@angular/http";
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
+
+import { NgxStripeModule } from 'ngx-stripe';
+
 const config: SocketIoConfig = { url: 'http://api.ischedulenow.com/ ', options: {} };
 
 
@@ -76,6 +79,9 @@ import { HealthReportComponent } from './health-report/health-report.component';
 import { SettingsComponent } from './settings/settings.component';
 import { BillComponent } from './bill/bill.component';
 import { ShareRecordsComponent } from './share-records/share-records.component';
+import { PayInvoiceComponent } from './pay-invoice/pay-invoice.component';
+import { PayCoupenComponent } from './pay-coupen/pay-coupen.component';
+import { MycoupensComponent } from './mycoupens/mycoupens.component';
 
 
 @NgModule({
@@ -125,6 +131,9 @@ import { ShareRecordsComponent } from './share-records/share-records.component';
     SettingsComponent,
     BillComponent,
     ShareRecordsComponent,
+    PayInvoiceComponent,
+    PayCoupenComponent,
+    MycoupensComponent,
 
   ],
 
@@ -140,7 +149,8 @@ import { ShareRecordsComponent } from './share-records/share-records.component';
     BsDatepickerModule.forRoot(),
 
     TimepickerModule.forRoot(),
-    SocketIoModule.forRoot(config)
+    SocketIoModule.forRoot(config),
+    NgxStripeModule.forRoot("pk_test_51HuAkZCbXi3plYezlGPSbYKulBljXuobMJZ1XrpgzUNFa4j9YqQkkjjG26EqlmkJK8IZCCaeJHUQV7MnL7BYxHPe00THCEOiuw")
 
   ],
   providers: [CookieService]

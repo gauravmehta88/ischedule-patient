@@ -1,0 +1,84 @@
+<toaster-container [toasterconfig]="config"></toaster-container>
+
+<div class="layer">
+
+
+
+</div>
+<!-- Mobile menu overlay mask -->
+
+<div id="preloader" *ngIf="loading">
+    <div data-loader="circle-side"></div>
+</div>
+<!-- End Preload -->
+
+<app-header *ngIf="!isloggedin"></app-header>
+<app-headerafterlogin *ngIf="isloggedin"></app-headerafterlogin>
+<!-- /header -->
+
+<main>
+    <div id="breadcrumb">
+        <div class="container">
+            <ul>
+                <li>
+                    <a routerLink="/">Home</a>
+                </li>
+                <li>
+                    <a routerLink="/dashboard">Dashboard</a>
+                </li>
+                <li>Payment</li>
+            </ul>
+        </div>
+    </div>
+    <!-- /breadcrumb -->
+
+
+
+    <div class="container-fluid">
+
+        <!-- Exportable Table -->
+        <div class="row clearfix">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            <strong>Payment </strong>Details</h2>
+
+                    </div>
+                    <div class="body">
+                        <div class="row">
+                            <aside class="col-xl-3 col-lg-4">
+
+                                <!-- CREDIT CARD FORM STARTS HERE -->
+
+
+                                <ngx-stripe-card [options]="cardOptions" [elementsOptions]="elementsOptions"></ngx-stripe-card>
+
+                                <a (click)="createToken()" class="btn_1">Submit</a>
+
+                                <!-- CREDIT CARD FORM ENDS HERE -->
+
+                            </aside>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #END# Exportable Table -->
+    </div>
+
+    <!-- /container -->
+</main>
+<!-- /main -->
+
+
+
+
+<app-footer></app-footer>
+<!--/footer-->
+
+<div id="toTop"></div>
+<!-- Back to top button -->
+
+<!-- COMMON SCRIPTS -->

@@ -851,6 +851,7 @@ export class DoctorService {
 
 
   searchCoupens(data) {
+
     let id = this.cookieService.getItem("_id");
     let headers = new Headers();
 
@@ -876,6 +877,99 @@ export class DoctorService {
         }
         return [];
       });
+  }
+
+
+
+  searchMyCoupens(data) {
+
+    let id = this.cookieService.getItem("_id");
+    let headers = new Headers();
+
+    headers.append("Content-Type", "application/json");
+    headers.append("Authorization", this.cookieService.getItem("Token"));
+    return this.http
+      .get(
+      environment.baseURL + `api/patient/${id}/coupons`,
+
+      {
+        headers: headers
+      }
+      )
+      .map(res => res.json())
+
+      .catch(e => {
+        if (e.status === 401) {
+          this.router.navigate(['/patient/login'])
+          console.log("UnAuth");
+        }
+        if (e.ok == false) {
+          return "1";
+        }
+        return [];
+      });
+  }
+
+  payPatientDue(data, invoiceId) {
+
+    let patientId = this.cookieService.getItem("_id");
+    let headers = new Headers();
+
+    headers.append("Content-Type", "application/json");
+    headers.append("Authorization", this.cookieService.getItem("Token"));
+    return this.http
+      .post(
+      environment.baseURL + "api/patient/" + patientId + "/clearDueAgainstInvoice/" + invoiceId, data,
+
+      {
+        headers: headers
+      }
+      )
+      .map(res => res.json())
+
+      .catch(e => {
+        if (e.status === 401) {
+          this.router.navigate(['/patient/login'])
+          console.log("UnAuth");
+        }
+        if (e.ok == false) {
+          return "1";
+        }
+        return [];
+      });
+
+
+  }
+
+  payCoupenDue(data, coupenId) {
+
+    let patientId = this.cookieService.getItem("_id");
+    let headers = new Headers();
+
+    headers.append("Content-Type", "application/json");
+    headers.append("Authorization", this.cookieService.getItem("Token"));
+    return this.http
+      .post(
+      environment.baseURL + "api/patient/" + patientId + "/buyCoupon/" + coupenId, data,
+
+      {
+        headers: headers
+      }
+      )
+      .map(res => res.json())
+
+      .catch(e => {
+        if (e.status === 401) {
+          this.router.navigate(['/patient/login'])
+          console.log("UnAuth");
+        }
+        if (e.ok == false) {
+          return "1";
+        }
+        return [];
+      });
+
+
   }
 
 
